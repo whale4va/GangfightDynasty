@@ -1,0 +1,2 @@
+#include "GoldMapView.h"
+
