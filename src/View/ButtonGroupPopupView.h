@@ -18,7 +18,7 @@ class ButtonGroupPopupView : public ViewFrame
     @param[in] column the column that the button will be placed at */
     //##ModelId=5269367A0307
     void SetCommonButtonAt(CommonButton* button, Uint32 row, Uint32 column);
-    
+
     /**
      @brief add a new/create a new button into this button group at specific rwo - column
      @param[in] row the row that new button will be placed at
@@ -26,7 +26,7 @@ class ButtonGroupPopupView : public ViewFrame
      @param[in] picName the button texture picture name
      @param[in] framseName=empty the button texture frames file name.
      */
-    void AddCommonButtonAt(Uint32 row, Uint32 column, String picName, String framesName = String());
+    void AddCommonButtonAt(Uint32 row, Uint32 column, String picName, String framesName = String()) throw (ExceptionId);
     
     /**
      @brief get specific common button by row - column
@@ -42,12 +42,22 @@ class ButtonGroupPopupView : public ViewFrame
     }
     
     ButtonGroupPopupView(cocos2d::CCNode* n) : ViewFrame(n), buttonList(true),
-    _row(0), _column(0), pButtonContainer(NULL) {}
+    _row(0), _column(0), menuList(true), pBackGround(NULL) {}
     ButtonGroupPopupView(cocos2d::CCNode* n, Uint32 row, Uint32 column) : ViewFrame(n),
-    buttonList(true), _row(row), _column(column), pButtonContainer(NULL)
+    buttonList(true), _row(row), _column(column), menuList(true), pBackGround(NULL)
     {
         InitWithRowColumn(_row, _column);
     }
+
+    inline void SetBackgroundReourceName(String picName)
+    {
+    	resourceName = picName;
+    }
+
+    void Dismiss();
+    void Display();
+    void Destory();
+    ~ButtonGroupPopupView();
 
   private:
     //##ModelId=522C84C50154
@@ -58,19 +68,19 @@ class ButtonGroupPopupView : public ViewFrame
     List<CommonButton*> buttonList;
     
     //// dimension parameters: divider width & height
-    Uint8 dividerW, dividerH;
-    Uint8 buttonW, buttonH;
+    String resourceName;		// background picture resource name.s
+    float dividerW, dividerH;
+    float buttonW, buttonH;
     static const Uint8 dividerRatioW, dividerRatioH;
-
 
     void ComputeDividerDimension();
     /**
      @brief cocos2d-x resource objects
      */
-    CCMenu* pButtonContainer;
+    List<CCMenu*> menuList;	//every row is in a CCMenu
+    cocos2d::CCSprite* pBackGround;	// background picture.
     ButtonGroupPopupView();
 };
-
 
 
 #endif /* BUTTONGROUPPOPUPVIEW_H_HEADER_INCLUDED_AD80AE65 */

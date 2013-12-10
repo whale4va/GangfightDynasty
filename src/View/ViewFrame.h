@@ -69,13 +69,15 @@ private:
     ViewFrame(CCNode* node) : ViewEventResponder(node), subview(true),
     _id(GAME_INVALID_ID), full(false), parentView(NULL), responder(NULL)
     {
-        position.x = position.y = position.z = 0;
-        dimension.w = dimension.h = 0;
+        position.x = position.y = position.z = 0.0;
+        dimension.w = dimension.h = 0.0;
     }
     
     
     inline void SetParentView(ViewFrame* v) { assert(v); parentView = v; }
     inline ViewFrame* GetParentView() { return parentView; }
+    inline void SetResponder(ViewEventResponder* res) { assert(res); responder = res; }
+    inline ViewEventResponder* GetResponder() { return responder; }
     
     /**
      * cocos2d-x specific methods

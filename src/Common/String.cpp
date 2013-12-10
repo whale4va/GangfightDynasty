@@ -351,4 +351,108 @@ void String::insert(const String& str, int startPos) throw(ExceptionId)
 	return;
 }
 
+/**
+ * string are stored as UTF-8 at default
+ */
+int String::CharNumber() throw(ExceptionId)
+{
+	if (length == 0)
+		return 0;
 
+	assert(data);
+	int pos = 0, num = 0;
+	while (pos < length)
+	{
+		unsigned char c = (unsigned char)data[pos];
+		unsigned char c1 = c>>4;
+		unsigned char c2 = c&0x0F;
+		if (c&0x80 == 0x00)
+		{	// ASCII character
+			pos++;
+			num++;
+		}
+		else
+		{
+			switch (c1)
+			{
+			case 0x0C:
+			case 0x0D:
+				pos += 2;
+				break;
+			case 0x0E:
+				pos += 3;
+				break;
+			case 0x0F:
+			{
+				if (c2&0x08 == 0x00)
+					pos+=4;
+				else if (c2&0x0C == 0x08)
+					pos+=5;
+				else if (c2&0x0E == 0x0C)
+					pos+=6;
+				else
+					throw (String_Not_UTF8);
+				break;
+			}
+			default:
+				throw (String_Not_UTF8);
+			}
+			num++;
+		}
+	}
+
+	return num;
+}
+
+int String::LocateChar(int index) throw(ExceptionId)
+{
+	if (length == 0 || index == 0)
+		return 0;
+
+	int pos = 0, num = 0;
+	while (pos < length)
+	{
+		unsigned char c = (unsigned char)data[pos];
+		unsigned char c1 = c>>4;
+		unsigned char c2 = c&0x0F;
+		if (c&0x80 == 0x00)
+		{	// ASCII character
+			pos++;
+			num++;
+		}
+		else
+		{
+			switch (c1)
+			{
+			case 0x0C:
+			case 0x0D:
+				pos += 2;
+				break;
+			case 0x0E:
+				pos += 3;
+				break;
+			case 0x0F:
+			{
+				if (c2&0x08 == 0x00)
+					pos+=4;
+				else if (c2&0x0C == 0x08)
+					pos+=5;
+				else if (c2&0x0E == 0x0C)
+					pos+=6;
+				else
+					throw (String_Not_UTF8);
+				break;
+			}
+			default:
+				throw (String_Not_UTF8);
+			}
+			num++;
+		}
+		if (num == index)	// fond here.
+			break;
+	}
+
+	if (pos >= length)
+		return String::invalidIndex;
+	return pos;
+}

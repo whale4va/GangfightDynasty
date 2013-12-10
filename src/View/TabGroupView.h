@@ -5,10 +5,12 @@
 //##ModelId=522C76D50103
 class TabGroupView : public ViewFrame
 {
-    //##ModelId=522C76DF01C2
-    Uint8 tabNumber;
     //##ModelId=52668E51035F
-    List<TabView*> tabList;
+    // tab view group tab views list
+    List<TabView*> _tabList;
+
+    // indicate which tab is selected in the group
+    int _selectedIndex;
 };
 
 

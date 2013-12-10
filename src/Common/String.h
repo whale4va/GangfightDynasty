@@ -71,6 +71,30 @@ public:
     void insert(const char* str, int startPos) throw(ExceptionId);
     void insert(const String& str, int startPos) throw(ExceptionId);
 
+    /**
+     * @brief compute the string containing characters number.
+     * since UTF-8 has many bytes for only one character
+     * @return int the UTF-8 characters number in the string.
+     */
+    int CharNumber() throw(ExceptionId);
+
+    /**
+     * @brief compute specific character (UTF-8) inside string array index.
+     * convert from character index to array index
+     */
+    int LocateChar(int index) throw(ExceptionId);
+
+    /**
+     * @brief static method to convert string from UTF-8 to Unicode.
+     */
+    static void ConvertUnicode();
+
+    /*
+     * @brief static method to convert string from Unicode. to UTF-8
+     */
+    static void ConvertUTF8();
+
+
     /** increase string buffer size for every allocate memory */
     static int increaseSize;
     static int invalidIndex;

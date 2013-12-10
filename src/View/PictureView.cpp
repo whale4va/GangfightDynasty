@@ -18,7 +18,7 @@ void PictureView::Display()
             pSprite->setScaleX(scaleX);
             pSprite->setScaleY(scaleY);
             //CCLOG("Picture content size = (%f, %f)\n", picSize.width, picSize.height);
-            //pSprite->setTextureRect(GetCCRect()); // only cut outdedicate area
+            //pSprite->setTextureRect(GetCCRect()); // only cut out dedicate area
         }
         
         pSprite->setPosition(ToCCPoint(position));

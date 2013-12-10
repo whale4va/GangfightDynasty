@@ -64,9 +64,11 @@ void CommonButton::Display()
     }
     
     //pButton->setPosition(ToCCPoint(position));
-    pButtonContainer->setPosition(ToCCPoint(position));
     if (pButtonContainer->getParent() == NULL)
+    {
+        pButtonContainer->setPosition(ToCCPoint(position));
         _node->addChild(pButtonContainer, position.z);
+    }
 }
 
 void CommonButton::DeducePictureName() throw (ExceptionId)
@@ -109,7 +111,7 @@ void CommonButton::DeducePictureName() throw (ExceptionId)
 
 void CommonButton::MenuHandler(cocos2d::CCObject* pSender)
 {
-    CCLOG("Common button %s was clicked\n", (const char*)resourceName);
+    CCLOG("Common button (%s) id=%d was clicked\n", (const char*)resourceName, _id);
     if (responder)
     {
         responder->SetSenderId(_id);

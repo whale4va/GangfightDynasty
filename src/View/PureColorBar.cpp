@@ -18,7 +18,7 @@ void PureColorBar::Display()
         lept.x = dimension.w*percentage/100;
         lept.y = dimension.h;
         rpt.x = lept.x;
-        rpt.y = 0;
+        rpt.y = 0.0;
         rept.x = dimension.w;
         rept.y = dimension.h;
         

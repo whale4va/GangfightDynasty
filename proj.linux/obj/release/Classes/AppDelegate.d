@@ -174,4 +174,7 @@ obj/release/Classes/AppDelegate.o: ../Classes/AppDelegate.cpp \
  ../Classes/../src/View/PictureView.h \
  ../Classes/../src/View/CommonButton.h \
  ../Classes/../src/View/PictureView.h \
- ../Classes/../src/View/PureColorBar.h
+ ../Classes/../src/View/PureColorBar.h \
+ ../Classes/../src/View/ButtonGroupPopupView.h \
+ ../Classes/../src/View/CommonButton.h \
+ ../Classes/../src/View/RichTextView.h

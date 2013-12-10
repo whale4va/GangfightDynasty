@@ -5,6 +5,8 @@
 #include "../src/View/PictureView.h"
 #include "../src/View/CommonButton.h"
 #include "../src/View/PureColorBar.h"
+#include "../src/View/ButtonGroupPopupView.h"
+#include "../src/View/RichTextView.h"
 #include "cocos2d.h"
 
 class HelloWorld : public cocos2d::CCLayer

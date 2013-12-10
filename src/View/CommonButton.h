@@ -22,10 +22,10 @@ class CommonButton : public PictureView, public cocos2d::CCObject
     //##ModelId=522F266F035D
     void SetVisible(bool vi);
     
-    inline CommonButton(CCNode* n) : PictureView(n), pButton(NULL),
+    inline CommonButton(CCNode* n) : PictureView(n), pButton(NULL), enabled(true), visible(true),
     pButtonContainer(NULL), framesFileName("Buttons/buttons.plist"), inGroup(false){}
-    inline CommonButton(CCNode* n, String picName) : PictureView(n, picName), inGroup(false),
-    pButton(NULL), pButtonContainer(NULL), framesFileName("Buttons/buttons.plist") {}
+    inline CommonButton(CCNode* n, String picName) : PictureView(n, picName), inGroup(false), enabled(true),
+    visible(true), pButton(NULL), pButtonContainer(NULL), framesFileName("Buttons/buttons.plist") {}
     
     inline void SetFramesFileName(String& fn) { framesFileName = fn; }
     
@@ -48,7 +48,7 @@ class CommonButton : public PictureView, public cocos2d::CCObject
     
     inline void Dismiss()
     {
-        if (pButtonContainer)
+        if (pButtonContainer->getParent())
             _node->removeChild(pButtonContainer);
     }
     

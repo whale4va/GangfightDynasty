@@ -3,6 +3,7 @@
 #include "ViewFrame.h"
 
 using cocos2d::CCLabelTTF;
+using cocos2d::CCLabelBMFont;
 
 //##ModelId=522B2C2C0328
 class TextView : public ViewFrame
@@ -16,10 +17,17 @@ class TextView : public ViewFrame
     //##ModelId=522B2D3D01F4
     String content;
     
+    // indicate is bitmap font or not
+    bool bmfont;
+
 public:
     TextView(CCNode* n) : ViewFrame(n), size(18), color(0xFFFFFFFF),
-    content(""), fontName("Arial"), plabel(NULL) {}
-    ~TextView()
+    content(""), fontName("Arial"), plabel(NULL), pBMlabel(NULL), bmfont(false) {}
+    TextView(CCNode* n, String str) : ViewFrame(n), size(18), color(0xFFFFFFFF),
+    		content(str), fontName("Arial"), plabel(NULL), pBMlabel(NULL), bmfont(false) {}
+    TextView(CCNode* n, String str, bool bm) : ViewFrame(n), size(18), color(0xFFFFFFFF),
+    		content(str), fontName("fonts/characters.fnt"), plabel(NULL), pBMlabel(NULL), bmfont(bm) {}
+    virtual ~TextView()
     {
         Destory();
     }
@@ -37,6 +45,11 @@ public:
         if (plabel)
             plabel->setString((const char*)content);
     }
+    // get content length in character unit, how many characters in content
+    inline int GetContentLength()
+    {
+    	return content.CharNumber();
+    }
     
     virtual void Display();
     virtual void Dismiss();
@@ -45,6 +58,7 @@ public:
 private:
     TextView();
     CCLabelTTF* plabel;
+    CCLabelBMFont* pBMlabel;
 };
 
 #endif /* TEXTVIEW_H_HEADER_INCLUDED_AD80E160 */

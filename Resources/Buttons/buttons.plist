@@ -4,10 +4,140 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>assign_leader_disabled.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{342,884},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>assign_leader_normal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{384,852},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>assign_leader_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{384,818},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>assign_weapon_disabled.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{308,891},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>assign_weapon_normal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{274,891},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>assign_weapon_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{252,968},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>buttons.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{498,506}}</string>
+                <key>offset</key>
+                <string>{-5,1}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{2,2},{498,506}}</string>
+                <key>sourceSize</key>
+                <string>{512,512}</string>
+            </dict>
+            <key>cancel_army_disabled.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{240,891},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>cancel_army_normal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{206,891},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>cancel_army_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{175,968},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
             <key>cancel_button_disabled.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{68,68},{64,64}}</string>
+                <string>{{376,886},{64,64}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +150,7 @@
             <key>cancel_button_normal.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{134,2},{64,64}}</string>
+                <string>{{318,818},{64,64}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +163,7 @@
             <key>cancel_button_selected.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{68,2},{64,64}}</string>
+                <string>{{200,660},{64,64}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -43,10 +173,114 @@
                 <key>sourceSize</key>
                 <string>{64,64}</string>
             </dict>
+            <key>create_army_disabled.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{476,810},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>create_army_normal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{476,733},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>create_army_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{172,891},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>horse_normal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{318,660},{156,156}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{156,156}}</string>
+                <key>sourceSize</key>
+                <string>{156,156}</string>
+            </dict>
+            <key>horse_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{160,733},{156,156}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{156,156}}</string>
+                <key>sourceSize</key>
+                <string>{156,156}</string>
+            </dict>
+            <key>merge_army_disabled.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{138,891},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>merge_army_normal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{104,891},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>merge_army_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{98,968},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
             <key>ok_button_disabled.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,134},{64,64}}</string>
+                <string>{{134,660},{64,64}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +293,7 @@
             <key>ok_button_normal.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,68},{64,64}}</string>
+                <string>{{68,660},{64,64}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -72,7 +306,7 @@
             <key>ok_button_selected.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{64,64}}</string>
+                <string>{{2,660},{64,64}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -82,6 +316,175 @@
                 <key>sourceSize</key>
                 <string>{64,64}</string>
             </dict>
+            <key>spear_normal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,733},{156,156}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{156,156}}</string>
+                <key>sourceSize</key>
+                <string>{156,156}</string>
+            </dict>
+            <key>spear_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{318,502},{156,156}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{156,156}}</string>
+                <key>sourceSize</key>
+                <string>{156,156}</string>
+            </dict>
+            <key>split_army_disabled.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{70,891},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>split_army_normal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{36,891},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>split_army_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,891},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>supply_army_disabled.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{476,656},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>supply_army_normal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{476,579},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>supply_army_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{476,502},{75,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,32}}</string>
+                <key>sourceSize</key>
+                <string>{75,32}</string>
+            </dict>
+            <key>sword_normal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{160,502},{156,156}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{156,156}}</string>
+                <key>sourceSize</key>
+                <string>{156,156}</string>
+            </dict>
+            <key>sword_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,502},{156,156}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{156,156}}</string>
+                <key>sourceSize</key>
+                <string>{156,156}</string>
+            </dict>
+            <key>tabview_dismiss_disabled.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{66,968},{50,30}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{50,30}}</string>
+                <key>sourceSize</key>
+                <string>{50,30}</string>
+            </dict>
+            <key>tabview_dismiss_normal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{34,968},{50,30}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{50,30}}</string>
+                <key>sourceSize</key>
+                <string>{50,30}</string>
+            </dict>
+            <key>tabview_dismiss_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,968},{50,30}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{50,30}}</string>
+                <key>sourceSize</key>
+                <string>{50,30}</string>
+            </dict>
         </dict>
         <key>metadata</key>
         <dict>
@@ -90,9 +493,9 @@
             <key>realTextureFileName</key>
             <string>buttons.png</string>
             <key>size</key>
-            <string>{256,256}</string>
+            <string>{512,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:b652f7b8cd6b79d79222310428edb9fa$</string>
+            <string>$TexturePacker:SmartUpdate:c528c366065dabb0eed68d40b3c484db$</string>
             <key>textureFileName</key>
             <string>buttons.png</string>
         </dict>

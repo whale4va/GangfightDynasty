@@ -17,6 +17,7 @@
 // global macros
 #define GAME_INVALID_ID 0
 #define GAME_FONT "BiauKai"     // BiauKai.ttf - Info.plst - Font provided by application
+#define FLOAT_MINOR_LIMIT 0.00001	// lower than this value defined as float 0.0
 
 // global types
 typedef bool Boolean;
@@ -30,6 +31,7 @@ typedef unsigned char Uint8;
 typedef struct _Point
 {
     float x, y, z;
+    _Point():x(0.0),y(0.0),z(0.0) {}
 }Point;
 
 inline Point mkPoint(float x, float y, float z = 0)
@@ -54,10 +56,11 @@ inline cocos2d::CCPoint ToCCPoint(Point pt)
  */
 typedef struct _Dimension
 {
-    Uint32 w, h;
+    float w, h;
+    _Dimension():w(0.0),h(0.0){}
 }Dimension;
 
-inline Dimension mkDimension(Uint32 w, Uint32 h)
+inline Dimension mkDimension(float w, float h)
 {
     Dimension dim;
     dim.w = w;
@@ -134,9 +137,15 @@ typedef enum _ExceptionId
 {
     Memory_Allocate_Failed = 1,     // Failed to allocate memory.
     Invalid_Index,                  // Invalid (illegal) index of array.
-    Invalid_ResourceName            // Invalid (illegal) resource (picture) name.
+    Invalid_ResourceName,           // Invalid (illegal) resource (picture) name.
+    Invalid_Dimension,				// Invalid (illegal) dimension defined.
+    Invalid_RichTextFormat,			// Invalid (illegal) rich text format string.
+    Invalid_RichTextElement,		// Invalid (illegal) rich text element not match.
+    Format_Parsing_Error,			// format string parsing error.
+    String_Not_UTF8,				// string is not in UTF-8 encoding.
+    Method_Not_Support,				// This method not support in the object.
+    Tab_Not_In_Group				// this tab view not put into a group yet.
 }ExceptionId;
-
 
 
 #endif

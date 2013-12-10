@@ -3,13 +3,14 @@ EXECUTABLE = GangfightDynasty
 INCLUDES = -I.. -I../Classes
 
 SOURCES = ../src/Common/String.cpp \
-        ../src/Common/List.cpp \
         ../src/View/ViewEventResponder.cpp \
         ../src/View/ViewFrame.cpp \
         ../src/View/TextView.cpp \
         ../src/View/PictureView.cpp \
         ../src/View/PureColorBar.cpp \
         ../src/View/CommonButton.cpp \
+        ../src/View/ButtonGroupPopupView.cpp \
+        ../src/View/RichTextView.cpp \
         main.cpp \
         ../Classes/AppDelegate.cpp \
         ../Classes/HelloWorldScene.cpp 
