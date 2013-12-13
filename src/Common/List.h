@@ -63,7 +63,7 @@ public:
     inline void Remove(int index) throw (ExceptionId)
     {
         if (index < 0 || index >= length)
-            throw (Invalid_Index);
+            THROW(Invalid_Index);
         
         if (index == length -1)
         {
@@ -77,10 +77,10 @@ public:
     }
     
     /** @brief retrieve element at specific position */
-    inline T& operator[](int index)
+    inline T& operator[](int index) throw (ExceptionId)
     {
         if (index < 0 || index >= length)
-            throw (Invalid_Index);
+            THROW(Invalid_Index);
 
         assert(data);
         return *(data + index);

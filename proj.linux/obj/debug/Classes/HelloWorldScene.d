@@ -167,6 +167,7 @@ obj/debug/Classes/HelloWorldScene.o: ../Classes/HelloWorldScene.cpp \
  ../../../cocos2dx/support/data_support/uthash.h \
  ../../../cocos2dx/support/component/CCComponent.h \
  ../../../cocos2dx/support/component/CCComponentContainer.h \
+ ../Classes/../src/View/../Common/ids.h \
  ../Classes/../src/View/../Common/String.h \
  ../Classes/../src/View/../Common/types.h \
  ../Classes/../src/View/../Common/List.h \
@@ -176,4 +177,6 @@ obj/debug/Classes/HelloWorldScene.o: ../Classes/HelloWorldScene.cpp \
  ../Classes/../src/View/PureColorBar.h \
  ../Classes/../src/View/ButtonGroupPopupView.h \
  ../Classes/../src/View/CommonButton.h \
- ../Classes/../src/View/RichTextView.h
+ ../Classes/../src/View/RichTextView.h ../Classes/../src/View/TabView.h \
+ ../Classes/../src/View/TextView.h ../Classes/../src/View/TabGroupView.h \
+ ../Classes/../src/View/TabView.h

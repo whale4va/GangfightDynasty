@@ -12,7 +12,7 @@ void TextView::Display()
 	{
 		if (pBMlabel == NULL)
 		{
-			pBMlabel = new cocos2d::CCLabelBMFont;
+			pBMlabel = new cocos2d::CCLabelBMFont();
 			pBMlabel->initWithString((const char*)content, (const char*)fontName);
 		}
 		else
@@ -23,14 +23,27 @@ void TextView::Display()
 		float scaleRatio = ((float)size)/labelSize.height;
 		pBMlabel->setScale(scaleRatio);
 		pBMlabel->setPosition(ToCCPoint(position));
-		if (pBMlabel->getParent() != NULL)
-			_node->addChild(pBMlabel, position.z);
+		pBMlabel->setColor(ToColor3B(color));
+		if (pBMlabel->getParent() == NULL)
+			_node->addChild(pBMlabel, (int)position.z);
+//		if (pBMlabel == NULL)
+//		{
+//			pBMlabel = new cocos2d::CCLabelBMFont();
+//			pBMlabel->initWithString((const char*)content, (const char*)fontName);
+//			cocos2d::CCSize labelSize = pBMlabel->getContentSize();
+//			float scaleRatio = ((float)size)/labelSize.height;
+//			pBMlabel->setScale(scaleRatio);
+//			pBMlabel->setColor(ToColor3B(color));
+//			pBMlabel->setPosition(ToCCPoint(position));
+//			if (pBMlabel->getParent() == NULL)
+//				_node->addChild(pBMlabel, (int)position.z);
+//		}
 	}
 	else
 	{
 	    if (plabel == NULL)
 	    {
-	        plabel = new cocos2d::CCLabelTTF;
+	        plabel = new cocos2d::CCLabelTTF();
 	        assert(plabel);
 	        plabel->initWithString((const char*)content, (const char *)fontName, (float)size);
 	    }
@@ -52,7 +65,7 @@ void TextView::Display()
 	        plabel->setVerticalAlignment(cocos2d::kCCVerticalTextAlignmentTop);
 	    }
 	    if (plabel->getParent() == NULL)
-	        _node->addChild(plabel, position.z);
+	        _node->addChild(plabel, (int)position.z);
 	}
 }
 

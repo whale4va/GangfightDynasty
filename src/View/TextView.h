@@ -32,6 +32,7 @@ public:
         Destory();
     }
     
+    inline void SetBMFont(bool bm) { bmfont = bm; }
     inline void SetSize(Uint32 s) { size = s; }
     inline Uint32 GetSize() { return size; }
     inline Uint32 GetColor() { return color; }
@@ -44,6 +45,8 @@ public:
         
         if (plabel)
             plabel->setString((const char*)content);
+        else if (pBMlabel)
+        	pBMlabel->setCString((const char*)content);
     }
     // get content length in character unit, how many characters in content
     inline int GetContentLength()

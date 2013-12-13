@@ -165,5 +165,5 @@ obj/release/src/View/TextView.o: ../src/View/TextView.cpp \
  ../../../cocos2dx/support/data_support/uthash.h \
  ../../../cocos2dx/support/component/CCComponent.h \
  ../../../cocos2dx/support/component/CCComponentContainer.h \
- ../src/View/../Common/String.h ../src/View/../Common/types.h \
- ../src/View/../Common/List.h
+ ../src/View/../Common/ids.h ../src/View/../Common/String.h \
+ ../src/View/../Common/types.h ../src/View/../Common/List.h

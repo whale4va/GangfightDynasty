@@ -26,7 +26,8 @@ void CommonButton::Display()
 {
     if (pButton == NULL)
     {
-        cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile((const char*)framesFileName);
+        if (!CCSpriteFrameLoader::loaded)
+        	CCSpriteFrameLoader::Load();
         DeducePictureName();
         pButton = new cocos2d::CCMenuItemImage;
         assert(pButton);
@@ -82,17 +83,17 @@ void CommonButton::DeducePictureName() throw (ExceptionId)
      */
     int len = resourceName.GetLength();
     if (len == 0)
-        throw (Invalid_ResourceName);
+        THROW(Invalid_ResourceName);
     
     int pos = resourceName.find('.');
     if (pos == String::invalidIndex)
-        throw (Invalid_ResourceName);
+        THROW(Invalid_ResourceName);
 
     String fileType = resourceName.substr(pos);
     
     pos = resourceName.rfind('_');
     if (pos == String::invalidIndex)
-        throw (Invalid_ResourceName);
+        THROW(Invalid_ResourceName);
     
     normalPic = resourceName.substr(0, pos);
     normalPic = normalPic + fileType;

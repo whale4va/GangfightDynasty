@@ -113,7 +113,7 @@ char& String::operator[](int index) throw(ExceptionId)
 {
     // index should > 0 && < length
     if (index >= length || index < 0)
-        throw Invalid_Index;
+        THROW(Invalid_Index);
     
     assert(data);
     return data[index];
@@ -243,7 +243,7 @@ void String::append(const char* str)
 int String::find(const char c, int startPos) throw(ExceptionId)
 {
     if (startPos < 0 || startPos >= length)
-        throw (Invalid_Index);
+	THROW(Invalid_Index);
     
     if (length == 0)
         return invalidIndex;
@@ -259,7 +259,7 @@ int String::find(const char c, int startPos) throw(ExceptionId)
 int String::rfind(const char c, int startPos) throw(ExceptionId)
 {
 	if (startPos < 0 || startPos >= length)
-		throw (Invalid_Index);
+		THROW(Invalid_Index);
 
 	if (length == 0)
 		return invalidIndex;
@@ -278,7 +278,7 @@ int String::rfind(const char c, int startPos) throw(ExceptionId)
 String String::substr(int startPos, int len) throw(ExceptionId)
 {
     if (startPos < 0 || startPos >= length)
-        throw (Invalid_Index);
+	THROW(Invalid_Index);
     
     if (length == 0)
         return String();
@@ -305,7 +305,7 @@ void String::insert(const char* str, int startPos) throw(ExceptionId)
 	if (str == NULL || insertLength == 0)
 		return;
 	if (startPos < 0 || startPos > length)	// can be length, equals as append()
-		throw (Invalid_Index);
+		THROW(Invalid_Index);
 
 	if (size > length + insertLength)
 	{	// buffer is enough, directly move and copy
@@ -366,7 +366,9 @@ int String::CharNumber() throw(ExceptionId)
 		unsigned char c = (unsigned char)data[pos];
 		unsigned char c1 = c>>4;
 		unsigned char c2 = c&0x0F;
-		if (c&0x80 == 0x00)
+
+		// == high priority than &
+		if ( (c&0x80) == 0x00)
 		{	// ASCII character
 			pos++;
 			num++;
@@ -391,11 +393,11 @@ int String::CharNumber() throw(ExceptionId)
 				else if (c2&0x0E == 0x0C)
 					pos+=6;
 				else
-					throw (String_Not_UTF8);
+					THROW(String_Not_UTF8);
 				break;
 			}
 			default:
-				throw (String_Not_UTF8);
+				THROW(String_Not_UTF8);
 			}
 			num++;
 		}
@@ -440,11 +442,11 @@ int String::LocateChar(int index) throw(ExceptionId)
 				else if (c2&0x0E == 0x0C)
 					pos+=6;
 				else
-					throw (String_Not_UTF8);
+					THROW(String_Not_UTF8);
 				break;
 			}
 			default:
-				throw (String_Not_UTF8);
+				THROW(String_Not_UTF8);
 			}
 			num++;
 		}

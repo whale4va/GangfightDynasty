@@ -13,9 +13,9 @@
 #include <string.h>
 //#include "ccTypes.h"
 #include "cocos2d.h"
+#include "ids.h"
 
 // global macros
-#define GAME_INVALID_ID 0
 #define GAME_FONT "BiauKai"     // BiauKai.ttf - Info.plst - Font provided by application
 #define FLOAT_MINOR_LIMIT 0.00001	// lower than this value defined as float 0.0
 
@@ -147,5 +147,14 @@ typedef enum _ExceptionId
     Tab_Not_In_Group				// this tab view not put into a group yet.
 }ExceptionId;
 
+
+/**
+ * @brief define self throw macro, print more information about throw point
+ */
+#define THROW(_EID_) \
+{\
+    CCLOG("throw exception %d from %s:%d\n", _EID_, __FILE__, __LINE__); \
+    throw (_EID_); \
+}
 
 #endif

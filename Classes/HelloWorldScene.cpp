@@ -8,13 +8,17 @@ static CommonButton* holdButton = NULL;
 static PureColorBar* holdColorBar = NULL;
 static ButtonGroupPopupView* holdButtonGroup = NULL;
 static RichTextView* holdRichText = NULL;
+static TabGroupView* holdTabGroup = NULL;
+static CCScene* holdScene = NULL;
+
 
 CCScene* HelloWorld::scene()
 {
-    // 'scene' is an autorelease object
+    // 'scene' is an auto release object
     CCScene *scene = CCScene::create();
+    holdScene = scene;
     
-    // 'layer' is an autorelease object
+    // 'layer' is an auto release object
     HelloWorld *layer = HelloWorld::create();
 
     // add layer as a child to scene
@@ -38,6 +42,8 @@ void HelloWorld::OnExit()
     	delete holdButtonGroup;
     if (holdRichText)
     	delete holdRichText;
+    if (holdTabGroup)
+    	delete holdTabGroup;
 }
 
 // on "init" you need to initialize your instance
@@ -81,7 +87,7 @@ bool HelloWorld::init()
     // create and initialize a label
     
     CCLabelTTF* pLabel = CCLabelTTF::create("Hello World", "Arial", 24);
-    
+
     // position the label on the center of the screen
     pLabel->setPosition(ccp(origin.x + visibleSize.width/2,
                             origin.y + visibleSize.height - pLabel->getContentSize().height));
@@ -98,14 +104,24 @@ bool HelloWorld::init()
     // add the sprite as a child to this layer
     this->addChild(pSprite, 0);
     
-    
+
+    try
+    {
+    	THROW(Invalid_Dimension);
+    }
+    catch (ExceptionId& ec)
+    {
+    	CCLOG("Try self THROW macro, catch exception id = %d\n", (int)ec);
+    }
+
     /**
-     *  @brief add my own content
+     *  Text View
      */
     TextView* pt = new TextView(this);
-    pt->SetColor(0xFF000000);
+    pt->SetColor(0xFF0000FF);
     //pt->SetContent("Just show TextView");
-    pt->SetContent("汉字简体爱");
+    pt->SetContent("長安");
+    pt->SetBMFont(true);
     Point pos;
     pos.x = origin.x + visibleSize.width/2;
     pos.y = visibleSize.height/2 + origin.y;
@@ -113,15 +129,17 @@ bool HelloWorld::init()
     pt->SetPoint(pos);
     //pt->SetFont("BiauKai");
     //pt->SetFont("DFKaiSUBold-B5");
-    pt->SetFont("WenQuanYi Micro Hei");
-    pt->SetSize(16);
-    pt->SetDimension(mkDimension(200, 200));
+    //pt->SetFont("WenQuanYi Micro Hei");
+    pt->SetFont("fonts/characters.fnt");
+    //pt->SetDimension(mkDimension(200, 200));
     pt->Display();
     
     if (holdView == NULL)
         holdView = pt;
     
-    
+    /**
+     * Picture view
+     */
     PictureView* pPic = new PictureView(this, "horsing.jpg");
     pPic->SetPoint(mkPoint(200, 100));
     pPic->SetDimension(mkDimension(100, 100));
@@ -129,17 +147,26 @@ bool HelloWorld::init()
     if (holdPic == NULL)
         holdPic = pPic;
     
+    /**
+     * Sigle common button
+     */
     holdButton = new CommonButton(this, "ok_button_normal.png");
     holdButton->SetPoint(mkPoint(64, 200, 5));
     holdButton->SetDimension(mkDimension(32, 32));
     holdButton->Display();
     
+    /**
+     * Pure color bar
+     */
     holdColorBar = new PureColorBar(this, 0xFF0000FF, 0x00FFFFFF);
     holdColorBar->SetPercentage(30);
     holdColorBar->SetDimension(mkDimension(64, 40));
     holdColorBar->SetPoint(mkPoint(40, 240, 6));
     holdColorBar->Display();
 
+    /**
+     * Button group
+     */
     holdButtonGroup = new ButtonGroupPopupView(this, 2, 2);
     holdButtonGroup->SetBackgroundReourceName("PopupBackground.png");
     holdButtonGroup->SetDimension(mkDimension(128, 40));
@@ -157,6 +184,9 @@ bool HelloWorld::init()
     }
     holdButtonGroup->Display();
 
+    /**
+     * Rich text view
+     */
     holdRichText = new RichTextView(this, "看看{T}效果{P}洛陽長安桂陽{T}", 0xFF0000FF, "fonts/characters.fnt");
     RichTextElement* rte = new RichTextElement("fonts/characters.fnt", "戰業", 0x0000FFFF);
     holdRichText->AddRichTextElement(rte);
@@ -175,6 +205,27 @@ bool HelloWorld::init()
     	CCLOG("RichTextView display exception id=%d\n", (int)ec);
     }
 
+    /**
+     * Tab group view
+     */
+    holdTabGroup = new TabGroupView(this);
+    holdTabGroup->init();
+    holdTabGroup->SetDimension(mkDimension(300, 160));
+    holdTabGroup->SetPoint(mkPoint(600, 100, 7));
+    TabView* pTab = new TabView(holdTabGroup, "桂陽");
+    holdTabGroup->AddTab(pTab);
+    pTab = new TabView(holdTabGroup, "洛陽");
+    holdTabGroup->AddTab(pTab);
+    pTab = new TabView(holdTabGroup, "晉陽");
+    holdTabGroup->AddTab(pTab);
+    try
+    {
+    	holdTabGroup->Display();
+    }
+    catch (ExceptionId& ec)
+    {
+    	CCLOG("TabGroupVIew display exception id=%d\n", (int)ec);
+    }
 
     return true;
 }
@@ -197,6 +248,7 @@ void HelloWorld::menuCloseCallback(CCObject* pSender)
         holdColorBar->SetRightColor(0x0000FFFF);
         holdButtonGroup->Dismiss();
         holdRichText->Dismiss();
+        holdTabGroup->Dismiss();
         return;
     }
     CCDirector::sharedDirector()->end();

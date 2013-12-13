@@ -48,3 +48,6 @@ Uint32 ViewFrame::GetId()
 */
 
 
+bool CCSpriteFrameLoader::loaded = false;
+
+

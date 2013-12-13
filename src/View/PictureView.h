@@ -28,7 +28,7 @@ public:
         }
     }
     
-    inline ~PictureView()
+    virtual inline ~PictureView()
     {
         Destory();
     }

@@ -11,6 +11,8 @@ SOURCES = ../src/Common/String.cpp \
         ../src/View/CommonButton.cpp \
         ../src/View/ButtonGroupPopupView.cpp \
         ../src/View/RichTextView.cpp \
+        ../src/View/TabView.cpp \
+        ../src/View/TabGroupView.cpp \
         main.cpp \
         ../Classes/AppDelegate.cpp \
         ../Classes/HelloWorldScene.cpp 

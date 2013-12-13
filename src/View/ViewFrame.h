@@ -73,6 +73,11 @@ private:
         dimension.w = dimension.h = 0.0;
     }
     
+    virtual ~ViewFrame()
+    {
+    	Destory();
+    }
+
     
     inline void SetParentView(ViewFrame* v) { assert(v); parentView = v; }
     inline ViewFrame* GetParentView() { return parentView; }
@@ -87,6 +92,24 @@ private:
         return cocos2d::CCRect(position.x, position.y,
                                dimension.w, dimension.h);
     }
+};
+
+/**
+ * @brief static class provides static methods to load sprite frames from file once
+ */
+class CCSpriteFrameLoader
+{
+public:
+	static bool loaded;
+	inline static void Load()
+	{
+		cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Buttons/buttons.plist");
+		cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Backgrounds/backgrounds.plist");
+		loaded = true;
+	}
+
+private:
+	CCSpriteFrameLoader();
 };
 
 

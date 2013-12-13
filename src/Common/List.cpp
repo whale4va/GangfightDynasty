@@ -44,7 +44,7 @@ template <typename T>
 T& List<T>::operator[](int index)
 {
     if (index < 0 || index >= length)
-        throw (Invalid_Index);
+        THROW(Invalid_Index);
     
     assert(data);
     return *(data + index);

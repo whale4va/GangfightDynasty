@@ -16,33 +16,33 @@ private:
     
   public:
     //##ModelId=523F025402A1
-    bool OnListItemSelected();
+    virtual bool OnListItemSelected();
 
     //##ModelId=523F0258027F
-    bool OnButton();
+    virtual bool OnButton();
 
     //##ModelId=523F025C0237
-    bool OnTap();
+    virtual bool OnTap();
 
     //##ModelId=523F040402A4
-    bool OnSortListByColumn();
+    virtual bool OnSortListByColumn();
 
     //##ModelId=523F10C500AC
-    bool OnTapMove();
+    virtual bool OnTapMove();
 
     //##ModelId=5240BDA70041
-    bool OnSlipSpecialButton();
+    virtual bool OnSlipSpecialButton();
 
     //##ModelId=5240BEA10063
-    bool OnListSpecialButton();
+    virtual bool OnListSpecialButton();
 
     //##ModelId=5240C9B40082
-    bool OnFinish();
+    virtual bool OnFinish();
 
     /** @brief handle on event that sub tab view title was tapped/clicked. Or
     tap move was performed to start change tab view showing. */
     //##ModelId=52668FCB03B8
-    bool OnTabTitleTap();
+    virtual bool OnTabTitleTap();
     
     
     /**
@@ -58,6 +58,29 @@ private:
 //    ViewEventResponder(cocos2d::CCLayer* l) : _layer(l) {}
     cocos2d::CCNode* _node;     // parent node that this view frame need to be added to
     ViewEventResponder(cocos2d::CCNode* n) : _node(n), _senderId(GAME_INVALID_ID) {}
+    virtual ~ViewEventResponder() {}
+
+    /**
+     * @brief Determine whether this viewFrame contain a point
+     * @param pt[in] the point need to be judged
+     * @param dim[in] the dimension information of area
+     * @parm cp[in] central point of area
+     * @return bool true if the area contain this point else false.
+     */
+    inline bool AreaContainCCPoint(cocos2d::CCPoint pt, Point cp, Dimension dim) throw(ExceptionId)
+    {
+    	if (dim.w < FLOAT_MINOR_LIMIT || dim.h < FLOAT_MINOR_LIMIT)
+    		throw (Invalid_Dimension);
+    	if (pt.x >= cp.x - dim.w/2 &&
+    			pt.x <= cp.x + dim.w/2 &&
+    			pt.y >= cp.y - dim.h/2 &&
+    			pt.y <= cp.y + dim.h/2)
+    		return true;
+    	else
+    		return false;
+    }
+
+    cocos2d::CCPoint _touchStartPt, _touchEndPt, _touchCurPt;
 };
 
 

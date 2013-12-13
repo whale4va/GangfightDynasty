@@ -94,7 +94,7 @@ void RichTextView::ParseFormatContent() throw (ExceptionId)
 				// release already constructed object
 				if (!ccList.Empty())
 					ccList.Release();
-				throw Invalid_RichTextFormat;
+				THROW(Invalid_RichTextFormat);
 			}
 			else
 			{
@@ -118,7 +118,7 @@ void RichTextView::ParseFormatContent() throw (ExceptionId)
 					// release already constructed object
 					if (!ccList.Empty())
 						ccList.Release();
-					throw ec;
+					THROW(ec);
 				}
 			}
 		}
@@ -137,7 +137,7 @@ void RichTextView::ParseFormatContent() throw (ExceptionId)
 				{;
 					if (!ccList.Empty())
 						ccList.Release();
-					throw (Invalid_RichTextElement);
+					THROW (Invalid_RichTextElement);
 				}
 				if (prte->content.empty())
 				{
@@ -171,7 +171,7 @@ void RichTextView::ParseFormatContent() throw (ExceptionId)
 				{
 					if (!ccList.Empty())
 						ccList.Release();
-					throw (Invalid_RichTextElement);
+					THROW (Invalid_RichTextElement);
 				}
 				cocos2d::CCSprite* pSprite = new cocos2d::CCSprite();
 				pSprite->initWithFile((const char*)prte->name);
@@ -198,7 +198,7 @@ void RichTextView::ParseFormatContent() throw (ExceptionId)
 				// release already constructed object
 				if (!ccList.Empty())
 					ccList.Release();
-				throw Invalid_RichTextFormat;
+				THROW(Invalid_RichTextFormat);
 			}
 		}
 		else
@@ -207,7 +207,7 @@ void RichTextView::ParseFormatContent() throw (ExceptionId)
 			{
 				if (!ccList.Empty())
 					ccList.Release();
-				throw Invalid_RichTextFormat;
+				THROW(Invalid_RichTextFormat);
 			}
 			cocos2d::CCLabelBMFont* pLabel = new CCLabelBMFont();
 			pLabel->initWithString((const char*)curStr, (const char*)formatFont);
@@ -241,7 +241,7 @@ void RichTextView::ParseFormatContent() throw (ExceptionId)
 								rows, rowCharNum, lastCharNum, aveCharWidth, (const char*)curStr);
 						if (!ccList.Empty())
 							ccList.Release();
-						throw Format_Parsing_Error;
+						THROW(Format_Parsing_Error);
 					}
 					curOriginal.y -= rows*(rowHeight+rowDividerH);
 					curOriginal.x = position.x - dimension.w/2 + aveCharWidth*lastCharNum;
@@ -281,7 +281,7 @@ void RichTextView::ParseFormatContent() throw (ExceptionId)
 									rows, rowCharNum, lastCharNum, aveCharWidth, (const char*)secondStr);
 							if (!ccList.Empty())
 								ccList.Release();
-							throw Format_Parsing_Error;
+							THROW(Format_Parsing_Error);
 						}
 						curOriginal.y -= rows*(rowHeight+rowDividerH);
 						curOriginal.x = position.x - dimension.w/2 + aveCharWidth*lastCharNum;
@@ -293,7 +293,7 @@ void RichTextView::ParseFormatContent() throw (ExceptionId)
 									firstRowRatio, dividerCharIndex, (const char*)curStr);
 						if (!ccList.Empty())
 							ccList.Release();
-						throw Format_Parsing_Error;
+						THROW(Format_Parsing_Error);
 					}
 				}
 			}

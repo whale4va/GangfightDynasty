@@ -7,6 +7,8 @@
 #include "../src/View/PureColorBar.h"
 #include "../src/View/ButtonGroupPopupView.h"
 #include "../src/View/RichTextView.h"
+#include "../src/View/TabView.h"
+#include "../src/View/TabGroupView.h"
 #include "cocos2d.h"
 
 class HelloWorld : public cocos2d::CCLayer

@@ -42,7 +42,7 @@ void ButtonGroupPopupView::AddCommonButtonAt(Uint32 row, Uint32 column, String p
     
     ComputeDividerDimension();
     if (buttonH == 0 || buttonW == 0)
-    	throw (Invalid_Dimension);
+    	THROW(Invalid_Dimension);
 
     CCMenu* pButtonContainer = menuList[row];
     if (pButtonContainer == NULL)
