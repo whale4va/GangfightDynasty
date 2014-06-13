@@ -2,6 +2,9 @@
 #define WARFAREVIEW_H_HEADER_INCLUDED_AD80EBB3
 #include "PictureView.h"
 
+#include "../Model/Army.h"
+#include "../Model/Warfare.h"
+
 //##ModelId=522C6EC70231
 class WarfareView
 {

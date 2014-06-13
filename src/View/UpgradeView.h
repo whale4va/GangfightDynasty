@@ -1,23 +1,28 @@
 #ifndef UPGRADEVIEW_H_HEADER_INCLUDED_AD80A41A
 #define UPGRADEVIEW_H_HEADER_INCLUDED_AD80A41A
+
+#include "../Model/Event.h"
 #include "CommonButton.h"
 #include "TabView.h"
+#include "RichTextView.h"
+#include "ListView.h"
+
 
 //##ModelId=522C3A4900B0
 class UpgradeView : public TabView
 {
   public:
     //##ModelId=522C6CF80198
-    ShowCandidateLeaderList();
+    void ShowCandidateLeaderList();
 
     //##ModelId=522C6D0C01C2
-    RefreshResultView();
+    void RefreshResultView();
 
     //##ModelId=526919130240
-    InitWithUpgradeType(UpgradeType type);
+    void InitWithUpgradeType(UpgradeType type);
 
     //##ModelId=52691B08002A
-    Event GenerateEvent();
+    Event* GenerateEvent();
 
   private:
     //##ModelId=522C65B70046

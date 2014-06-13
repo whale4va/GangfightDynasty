@@ -18,7 +18,8 @@
  * Button ID
  */
 #define BTN_TAB_GROUP_DISMISS 0x00FF0001
-
+#define BTN_OK 0x00FF0002
+#define BTN_CANCEL 0x00FF0003
 
 
 #endif /* IDS_H_ */

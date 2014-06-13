@@ -386,11 +386,11 @@ int String::CharNumber() throw(ExceptionId)
 				break;
 			case 0x0F:
 			{
-				if (c2&0x08 == 0x00)
+				if ((c2&0x08) == 0x00)
 					pos+=4;
-				else if (c2&0x0C == 0x08)
+				else if ((c2&0x0C) == 0x08)
 					pos+=5;
-				else if (c2&0x0E == 0x0C)
+				else if ((c2&0x0E) == 0x0C)
 					pos+=6;
 				else
 					THROW(String_Not_UTF8);
@@ -417,7 +417,7 @@ int String::LocateChar(int index) throw(ExceptionId)
 		unsigned char c = (unsigned char)data[pos];
 		unsigned char c1 = c>>4;
 		unsigned char c2 = c&0x0F;
-		if (c&0x80 == 0x00)
+		if ((c&0x80) == 0x00)
 		{	// ASCII character
 			pos++;
 			num++;
@@ -435,11 +435,11 @@ int String::LocateChar(int index) throw(ExceptionId)
 				break;
 			case 0x0F:
 			{
-				if (c2&0x08 == 0x00)
+				if ((c2&0x08) == 0x00)
 					pos+=4;
-				else if (c2&0x0C == 0x08)
+				else if ((c2&0x0C) == 0x08)
 					pos+=5;
-				else if (c2&0x0E == 0x0C)
+				else if ((c2&0x0E) == 0x0C)
 					pos+=6;
 				else
 					THROW(String_Not_UTF8);

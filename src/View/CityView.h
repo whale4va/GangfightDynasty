@@ -1,6 +1,9 @@
 #ifndef CITYVIEW_H_HEADER_INCLUDED_AD80A9BF
 #define CITYVIEW_H_HEADER_INCLUDED_AD80A9BF
-#include "ViewFrame.h"
+#include "ListView.h"
+#include "CommonButton.h"
+#include "TextView.h"
+#include "../Model/Army.h"
 
 //##ModelId=522B31BB0325
 class CityView : public ViewFrame
@@ -93,13 +96,13 @@ class CityView : public ViewFrame
     //##ModelId=522B331F0252
     ListView armyListView;
     //##ModelId=522B35AF0069
-    CommonButton armyManageButtons[];
+    List<CommonButton> armyManageButtons;
     //##ModelId=522B36690224
     TextView nameTextView;
     //##ModelId=522B3E6203A0
-    CommonButton cityOperationButtons[];
+    List<CommonButton> cityOperationButtons;
     //##ModelId=522B3F2900BC
-    TextView cityPropertyTextViews[];
+    List<TextView> cityPropertyTextViews;
     //##ModelId=522B3F540167
     PictureView backgroundView;
     //##ModelId=522B3F69025D

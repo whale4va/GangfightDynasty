@@ -30,6 +30,9 @@ typedef struct _RichTextElement
 
 	_RichTextElement(String fontName, String str, Uint32 c) : type(Text),
 			name(fontName), scale(1.0), color(c), content(str) {}
+    
+    _RichTextElement(const _RichTextElement& orig) : type(orig.type), name(orig.name),
+            content(orig.content), scale(orig.scale), color(orig.color) {}
 
 	inline void Set(String picName, Dimension dim)
 	{
@@ -49,15 +52,6 @@ typedef struct _RichTextElement
 	inline void SetScale(float s) { scale=s; }
 
 //	_RichTextElement() : type(Unknown), scale(1.0), color(0x00000000) {}
-	_RichTextElement(const _RichTextElement& rte)
-	{
-		type = rte.type;
-		name = rte.name;
-		color = rte.color;
-		scale = rte.scale;
-//		dimension = rte.dimension;
-		content = rte.content;
-	}
 
 	_RichTextElement& operator=(const _RichTextElement& rte)
 	{
@@ -89,6 +83,27 @@ class RichTextView : public ViewFrame
 			formatContent(str), formatScale(1.0), formatColor(color), ccList(true), needParse(true) {}
 	RichTextView(CCNode* n, String str, Uint32 color, String font) : ViewFrame(n), elementList(true),
 			formatContent(str), formatScale(1.0), formatColor(color), ccList(true), needParse(true), formatFont(font) {}
+    
+    // 注意：拷贝构造 & 赋值的时候 cocos2d-x里面的资源指针，链表指针，均赋值为NULL，避免多个对象操作同一个cocos2d-x资源冲突
+    RichTextView(const RichTextView& orig):ViewFrame(orig), elementList(orig.elementList), formatColor(orig.formatColor),
+            formatContent(orig.formatContent), formatScale(orig.formatScale), formatFont(orig.formatFont),
+            ccList(true), needParse(orig.needParse) {}
+    // 注意：拷贝构造 & 赋值的时候 cocos2d-x里面的资源指针，链表指针，均赋值为NULL，避免多个对象操作同一个cocos2d-x资源冲突
+    RichTextView& operator=(const RichTextView& orig)
+    {
+       if (this != &orig)
+       {
+           *((ViewFrame*)this) = (ViewFrame)orig;
+           elementList = orig.elementList;
+           formatColor = orig.formatColor;
+           formatContent = orig.formatContent;
+           formatFont = orig.formatFont;
+           formatScale = orig.formatScale;
+           ccList.Release();
+           needParse = orig.needParse;
+       }
+        return *this;
+    }
 
 	virtual inline ~RichTextView()
 	{

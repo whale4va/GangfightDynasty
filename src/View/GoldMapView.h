@@ -1,7 +1,8 @@
 #ifndef GOLDMAPVIEW_H_HEADER_INCLUDED_AD80DB94
 #define GOLDMAPVIEW_H_HEADER_INCLUDED_AD80DB94
 #include "CommonButton.h"
-#include "TabView.h"
+//#include "TabView.h"
+#include "ListView.h"
 #include "TextView.h"
 
 //##ModelId=522C81F20244

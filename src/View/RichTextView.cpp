@@ -215,7 +215,6 @@ void RichTextView::ParseFormatContent() throw (ExceptionId)
 			float scaleRatio = rowHeight/labelSize.height;
 //			float aveCharWidth = labelSize.width/curStr.GetLength()*scaleRatio;
 			float aveCharWidth = labelSize.width/curStr.CharNumber()*scaleRatio;
-			cocos2d::CCLabelBMFont* pLabel2 = NULL;
 			if (curOriginal.x + labelSize.width*scaleRatio > position.x + dimension.w/2)
 			{
 				float firstRowRatio = (position.x+dimension.w-curOriginal.x)/(labelSize.width*scaleRatio);

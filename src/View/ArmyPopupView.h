@@ -1,6 +1,7 @@
 #ifndef ARMYPOPUPVIEW_H_HEADER_INCLUDED_AD80A85A
 #define ARMYPOPUPVIEW_H_HEADER_INCLUDED_AD80A85A
-#include "TabView.h"
+#include "ListView.h"
+//#include "TabView.h"
 
 //##ModelId=522B4A2C00A4
 class ArmyPopupView : public TabView

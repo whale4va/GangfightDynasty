@@ -23,9 +23,9 @@ class CommonButton : public PictureView, public cocos2d::CCObject
     void SetVisible(bool vi);
     
     inline CommonButton(CCNode* n) : PictureView(n), pButton(NULL), enabled(true), visible(true),
-    pButtonContainer(NULL), framesFileName("Buttons/buttons.plist"), inGroup(false){}
+    pButtonContainer(NULL), framesFileName(ResourceUri::buttonPictureAtlas), inGroup(false){}
     inline CommonButton(CCNode* n, String picName) : PictureView(n, picName), inGroup(false), enabled(true),
-    visible(true), pButton(NULL), pButtonContainer(NULL), framesFileName("Buttons/buttons.plist") {}
+    visible(true), pButton(NULL), pButtonContainer(NULL), framesFileName(ResourceUri::buttonPictureAtlas) {}
     
     inline void SetFramesFileName(String& fn) { framesFileName = fn; }
     

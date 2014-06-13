@@ -58,6 +58,7 @@ void CityView::CencelArmyAsDefined(Uint32 id)
 //##ModelId=526CCD9600F0
 Army* CityView::CreateArmyAsDefined()
 {
+    return NULL;
 }
 
 //##ModelId=526CDD5D0249

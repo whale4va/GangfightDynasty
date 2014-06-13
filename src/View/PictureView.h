@@ -10,6 +10,22 @@ class PictureView : public ViewFrame
 public:
     PictureView(CCNode* n) : ViewFrame(n), pSprite(NULL) {}
     PictureView(CCNode* n, String picName) : ViewFrame(n), pSprite(NULL), resourceName(picName) {}
+    PictureView(const PictureView& orig) : ViewFrame(orig), pSprite(NULL), resourceName(orig.resourceName) {}
+    
+    PictureView& operator=(const PictureView& orig)
+    {
+        if (this != &orig)
+        {
+            *((ViewFrame*)this) = orig;
+            if (pSprite)
+            {
+                delete pSprite;
+                pSprite = NULL;
+            }
+            resourceName = orig.resourceName;
+        }
+        return *this;
+    }
     
     void Display();
     inline void Dismiss()

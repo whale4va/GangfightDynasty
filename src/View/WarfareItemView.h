@@ -2,6 +2,8 @@
 #define WARFAREITEMVIEW_H_HEADER_INCLUDED_AD80F426
 #include "PictureView.h"
 #include "TextView.h"
+#include "../Model/Warfare.h"
+#include "PureColorBar.h"
 
 //##ModelId=522C6FCC0303
 class WarfareItemView

@@ -38,3 +38,8 @@ $(OBJ_DIR)/%.o: ../%.cpp $(CORE_MAKEFILE_LIST)
 	
 run:
 	./bin/debug/$(EXECUTABLE)
+
+clean:
+	rm -rf ./obj
+	rm -rf ./bin
+

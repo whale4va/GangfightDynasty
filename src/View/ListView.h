@@ -9,7 +9,7 @@ class ListView : public TabView
 {
   public:
     //##ModelId=522B4CAE0320
-    RetrieveSelectedItem();
+    List<Uint32> RetrieveSelectedItem();
 
     /** Redraw list with specific index, used in sorting case. List actual
     model data is managed/owned by father view/object.
@@ -34,7 +34,7 @@ class ListView : public TabView
     //##ModelId=522B4B6300A7
     Uint32 columnNumber;
     //##ModelId=522B4BC902BC
-    Uint32 selectedItem[];
+    List<Uint32> selectedItem;
     //##ModelId=522B4BDE034A
     bool multiSelectable;
     //##ModelId=522B4BEC022F
@@ -42,13 +42,13 @@ class ListView : public TabView
     //##ModelId=522B4BF9014E
     CommonButton okButton;
     //##ModelId=522B4C6302DF
-    CommonButton specialButtons[];
+    List<CommonButton> specialButtons;
     //##ModelId=522B4C8100F3
     bool triggleSpecialButton;
     //##ModelId=522B4C98031D
     Uint32 specialButtonNumber;
     //##ModelId=522C617001A1
-    ViewFrame* contentViews[][];
+    List<ViewFrame*> contentViews;
     /** order of items in content views. */
     //##ModelId=526531910060
     List<Uint32> sortOrder;

@@ -14,6 +14,27 @@ public:
     PureColorBar(cocos2d::CCNode* n, Uint32 lc, Uint32 rc) : ViewFrame(n),
     leftColor(lc), rightColor(rc), percentage(50), pTexture(NULL) {}
     
+    // 注意：拷贝构造 & 赋值的时候 cocos2d-x里面的资源指针，链表指针，均赋值为NULL，避免多个对象操作同一个cocos2d-x资源冲突
+    PureColorBar(const PureColorBar& orig) : ViewFrame(orig), leftColor(orig.leftColor),
+    rightColor(orig.rightColor), percentage(orig.percentage), pTexture(NULL) {}
+    
+    PureColorBar& operator=(const PureColorBar& orig)
+    {
+       if (this != &orig)
+       {
+           *((ViewFrame*)this) = orig;
+           leftColor = orig.leftColor;
+           rightColor = orig.rightColor;
+           percentage = orig.percentage;
+           if (pTexture)
+           {
+               delete pTexture;
+               pTexture = NULL;
+           }
+       }
+        return *this;
+    }
+    
     void SetLeftColor(Uint32 lc);
     Uint32 GetLeftColor() { return leftColor; }
     

@@ -2,7 +2,7 @@
 #include "PictureView.h"
 
 //##ModelId=526D27EA0381
-ArmyReadyView::AddSelectedArmy(Uint32 id)
+void ArmyReadyView::AddSelectedArmy(Uint32 id)
 {
 }
 

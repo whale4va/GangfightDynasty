@@ -1,6 +1,9 @@
 #ifndef WARFAREITEMAREA_H_HEADER_INCLUDED_AD80D743
 #define WARFAREITEMAREA_H_HEADER_INCLUDED_AD80D743
 
+#include "../Common/types.h"
+#include "../Model/Warfare.h"
+
 //##ModelId=522C856303B9
 class WarfareItemArea
 {

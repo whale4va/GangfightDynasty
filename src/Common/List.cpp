@@ -7,7 +7,7 @@
 //
 
 #include "List.h"
-
+/**
 template<typename T>
 void List<T>::Add(const T& var)
 {
@@ -106,4 +106,7 @@ List<T>::List(const List<T>& lst)
     for (int i = 0; i < length; i++)
         *(data + i) = *(lst.data + i);
 }
+ 
+ **/
+
 

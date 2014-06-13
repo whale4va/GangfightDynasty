@@ -110,10 +110,17 @@ public:
                 delete (T)(data[i]);
                 *(data+i) = NULL;
             }
-            length = 0;
         }
+        if (size > 0)
+        {
+            delete [] data;
+            data = NULL;
+        }
+        size = length = 0;
     }
+
     
+
     inline int GetLength() { return length; }
     inline bool Empty() { return length == 0; }
     
@@ -145,7 +152,7 @@ public:
         return (*this);
     }
 
-    inline List(const List& lst)
+    inline List(const List& lst) :increaseSize(lst.increaseSize), invalidIndex(lst.invalidIndex)
     {
         size = lst.size;
         length = lst.length;

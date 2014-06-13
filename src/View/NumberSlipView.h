@@ -44,7 +44,7 @@ class NumberSlipView : public TabView
     //##ModelId=522C747402D0
     Uint32 stepValue;
     //##ModelId=522C74AA0330
-    CommonButton changeDefaultValueButtons[];
+    List<CommonButton> changeDefaultValueButtons;
     //##ModelId=522C74D30029
     Uint32 barColor;
     //##ModelId=526D0CE00059

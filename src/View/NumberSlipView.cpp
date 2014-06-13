@@ -8,6 +8,8 @@ void NumberSlipView::InitWithValues(Uint32 min, Uint32 max, Uint32 decide)
 //##ModelId=524058B30363
 Uint32 NumberSlipView::GetDecideValue()
 {
+    
+    return 0;
 }
 
 //##ModelId=5240BCAC00A7

@@ -2,6 +2,8 @@
 #define UNFULLVIEWSMANAGER_H_HEADER_INCLUDED_AD80C516
 class ViewFrame;
 
+#include "../Common/List.h"
+
 /** It's a selegon object for every Scense. Maintain any pointer/reference to
 un-full views in the screen. It's used in dismissing view operation. Any tap
 responding will query whether upmost views will be dismissed because of not be

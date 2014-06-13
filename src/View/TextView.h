@@ -26,7 +26,36 @@ public:
     TextView(CCNode* n, String str) : ViewFrame(n), size(18), color(0xFFFFFFFF),
     		content(str), fontName("Arial"), plabel(NULL), pBMlabel(NULL), bmfont(false) {}
     TextView(CCNode* n, String str, bool bm) : ViewFrame(n), size(18), color(0xFFFFFFFF),
-    		content(str), fontName("fonts/characters.fnt"), plabel(NULL), pBMlabel(NULL), bmfont(bm) {}
+            content(str), fontName(ResourceUri::bitmapFontFileName), plabel(NULL), pBMlabel(NULL), bmfont(bm) {}
+    
+    // 注意：拷贝构造 & 赋值的时候 cocos2d-x里面的资源指针，链表指针，均赋值为NULL，避免多个对象操作同一个cocos2d-x资源冲突
+    TextView(const TextView& orig) : ViewFrame(orig), size(orig.size), color(orig.color),
+        content(orig.content), fontName(orig.fontName), bmfont(orig.bmfont), plabel(NULL), pBMlabel(NULL) {}
+    
+    TextView& operator=(const TextView& orig)
+    {
+        if (this != &orig)
+        {
+            *((ViewFrame*)this) = (ViewFrame)orig;
+            size = orig.size;
+            color = orig.color;
+            content = orig.content;
+            fontName = orig.fontName;
+            bmfont = orig.bmfont;
+            if (plabel)
+            {
+                delete plabel;
+                plabel = NULL;
+            }
+            if (pBMlabel)
+            {
+                delete pBMlabel;
+                pBMlabel = NULL;
+            }
+        }
+        return (*this);
+    }
+    
     virtual ~TextView()
     {
         Destory();

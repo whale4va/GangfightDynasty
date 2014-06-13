@@ -18,6 +18,18 @@ class TabView : public ViewFrame
 public:
 	TabView(CCNode* n) : ViewFrame(n), _title("Blank Title") {}
 	TabView(CCNode* n, String title) : ViewFrame(n), _title(title){}
+    
+    TabView(const TabView& o):ViewFrame(o),_title(o._title) {}
+    TabView& operator=(const TabView& o)
+    {
+        if (this != &o)
+        {
+            *((ViewFrame*)this) = (ViewFrame)o;
+            //((ViewFrame*)this)->operator=((ViewFrame)o);
+            _title = o._title;
+        }
+        return *this;
+    }
 
 	virtual ~TabView()
 	{

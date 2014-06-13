@@ -44,6 +44,26 @@ private:
     //##ModelId=52668FCB03B8
     virtual bool OnTabTitleTap();
     
+    // constructors
+    ViewEventResponder(cocos2d::CCNode* n) : _node(n), _senderId(GAME_INVALID_ID) {}
+    ViewEventResponder(const ViewEventResponder& orig):_senderId(orig._senderId),
+        _node(orig._node), _touchStartPt(orig._touchStartPt), _touchEndPt(orig._touchEndPt),
+        _touchCurPt(orig._touchCurPt) {}
+    
+    virtual ~ViewEventResponder() {}
+    // assignment
+    ViewEventResponder& operator=(const ViewEventResponder& orig)
+    {
+        if (this != &orig)
+        {
+            _senderId = orig._senderId;
+            _node = orig._node;
+            _touchCurPt = orig._touchCurPt;
+            _touchStartPt = orig._touchStartPt;
+            _touchEndPt = orig._touchEndPt;
+        }
+        return *this;
+    }
     
     /**
      @brief id to indicate who is the event sender
@@ -57,8 +77,6 @@ private:
 //    cocos2d::CCLayer* _layer;
 //    ViewEventResponder(cocos2d::CCLayer* l) : _layer(l) {}
     cocos2d::CCNode* _node;     // parent node that this view frame need to be added to
-    ViewEventResponder(cocos2d::CCNode* n) : _node(n), _senderId(GAME_INVALID_ID) {}
-    virtual ~ViewEventResponder() {}
 
     /**
      * @brief Determine whether this viewFrame contain a point

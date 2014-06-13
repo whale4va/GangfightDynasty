@@ -7,7 +7,7 @@
 class CityPopupView : public TabView
 {
     //##ModelId=522B41690216
-    TextView cityPropertyTextViews[];
+    List<TextView> cityPropertyTextViews;
 };
 
 

@@ -13,7 +13,7 @@ class ArmyReadyView
     army small icon will be created internally.
     @param[in] id the id of the selected army. */
     //##ModelId=526D27EA0381
-    AddSelectedArmy(Uint32 id);
+    void AddSelectedArmy(Uint32 id);
 
     /** @brief clear all selected armies in the army ready view in case user
     tapped 'dismiss/cancel' on the army ready view. */

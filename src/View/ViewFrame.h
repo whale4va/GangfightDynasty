@@ -72,6 +72,25 @@ private:
         position.x = position.y = position.z = 0.0;
         dimension.w = dimension.h = 0.0;
     }
+    ViewFrame(const ViewFrame& orig) : ViewEventResponder((ViewEventResponder)orig),
+        subview(orig.subview), _id(orig._id), full(orig.full), parentView(orig.parentView), responder(orig.responder),
+        position(orig.position), dimension(orig.dimension) {}
+    
+    ViewFrame& operator=(const ViewFrame& orig)
+    {
+        if (this != & orig)
+        {
+            *((ViewEventResponder*)this) = (ViewEventResponder)orig;
+            subview = orig.subview;
+            _id = orig._id;
+            full = orig.full;
+            parentView = orig.parentView;
+            responder = orig.responder;
+            position = orig.position;
+            dimension = orig.dimension;
+        }
+        return *this;
+    }
     
     virtual ~ViewFrame()
     {
@@ -103,8 +122,8 @@ public:
 	static bool loaded;
 	inline static void Load()
 	{
-		cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Buttons/buttons.plist");
-		cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Backgrounds/backgrounds.plist");
+		cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile(ResourceUri::buttonPictureAtlas);
+		cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile(ResourceUri::backgroundPictureAtlas);
 		loaded = true;
 	}
 
