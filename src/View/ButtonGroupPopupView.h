@@ -42,9 +42,9 @@ class ButtonGroupPopupView : public ViewFrame
     }
     
     ButtonGroupPopupView(cocos2d::CCNode* n) : ViewFrame(n), buttonList(true),
-    _row(0), _column(0), menuList(true), pBackGround(NULL) {}
+    _row(0), _column(0), menuList(true), pBackGround(NULL), ccEventProcessed(0) {}
     ButtonGroupPopupView(cocos2d::CCNode* n, Uint32 row, Uint32 column) : ViewFrame(n),
-    buttonList(true), _row(row), _column(column), menuList(true), pBackGround(NULL)
+    buttonList(true), _row(row), _column(column), menuList(true), pBackGround(NULL), ccEventProcessed(0)
     {
         InitWithRowColumn(_row, _column);
     }
@@ -58,6 +58,68 @@ class ButtonGroupPopupView : public ViewFrame
     void Display();
     void Destory();
     ~ButtonGroupPopupView();
+    
+    
+    /**
+     * transfer CCLayer event to internal CCMenus
+     **/
+    inline virtual bool ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
+    {
+        bool ret = false;
+        ccEventProcessed = 0;
+        if (!menuList.Empty())
+        {
+            for (int i = 0; i < menuList.GetLength(); ++i)
+            {
+                if( menuList[i]->ccTouchBegan(pTouch, pEvent) )
+                {
+                    ccEventProcessed |= (0x01 << i);
+                    ret = true;
+                }
+            }
+        }
+        return ret;
+    }
+    inline virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent)
+    {
+        if (ccEventProcessed)
+        {
+            for (int i = 0; i < menuList.GetLength(); ++i)
+            {
+                if (ccEventProcessed & (0x01<<i))
+                {
+                    menuList[i]->ccTouchMoved(pTouch, pEvent);
+                }
+            }
+        }
+    }
+	inline virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
+    {
+        if (ccEventProcessed)
+        {
+            for (int i = 0; i < menuList.GetLength(); ++i)
+            {
+                if (ccEventProcessed & (0x01<<i))
+                {
+                    menuList[i]->ccTouchEnded(pTouch, pEvent);
+                }
+            }
+        }
+    }
+	inline virtual void ccTouchCancelled(CCTouch *pTouch, CCEvent *pEvent)
+    {
+        if (ccEventProcessed)
+        {
+            for (int i = 0; i < menuList.GetLength(); ++i)
+            {
+                if (ccEventProcessed & (0x01<<i))
+                {
+                    menuList[i]->ccTouchCancelled(pTouch, pEvent);
+                }
+            }
+        }
+    }
+    
 
   private:
     //##ModelId=522C84C50154
@@ -77,7 +139,9 @@ class ButtonGroupPopupView : public ViewFrame
     /**
      @brief cocos2d-x resource objects
      */
-    List<CCMenu*> menuList;	//every row is in a CCMenu
+    List<CCMenu*> menuList;     //every row is in a CCMenu
+    Uint64 ccEventProcessed;    //match "menuList" record, every bit represent one CCMenu need further event notify
+    
     cocos2d::CCSprite* pBackGround;	// background picture.
     ButtonGroupPopupView();
 };

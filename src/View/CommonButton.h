@@ -58,6 +58,41 @@ class CommonButton : public PictureView, public cocos2d::CCObject
     }
     
     /**
+     * transfer CCLayer event to internal CCMenu
+     **/
+    inline virtual bool ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
+    {
+        if (pButtonContainer)
+        {
+            return pButtonContainer->ccTouchBegan(pTouch, pEvent);
+        }
+        return false;
+    }
+
+    inline virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent)
+    {
+        if (pButtonContainer)
+        {
+            pButtonContainer->ccTouchMoved(pTouch, pEvent);
+        }
+    }
+    
+	inline virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
+    {
+        if (pButtonContainer)
+        {
+            pButtonContainer->ccTouchEnded(pTouch, pEvent);
+        }
+    }
+	inline virtual void ccTouchCancelled(CCTouch *pTouch, CCEvent *pEvent)
+    {
+        if (pButtonContainer)
+        {
+            pButtonContainer->ccTouchCancelled(pTouch, pEvent);
+        }
+    }
+    
+    /**
      @brief button event (tap) handler function
      */
     void MenuHandler(cocos2d::CCObject* pSender);

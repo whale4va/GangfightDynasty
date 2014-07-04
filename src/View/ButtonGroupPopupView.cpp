@@ -25,6 +25,21 @@ void ButtonGroupPopupView::SetCommonButtonAt(CommonButton* button, Uint32 row, U
     assert(row>=0 && row<_row);
     assert(column>=0 && column<_column);
     
+    ComputeDividerDimension();
+    if (buttonH == 0 || buttonW == 0)
+    	THROW(Invalid_Dimension);
+    
+    CCMenu* pButtonContainer = menuList[row];
+    if (pButtonContainer == NULL)
+    {
+        pButtonContainer = new cocos2d::CCMenu;
+        assert(pButtonContainer);
+        pButtonContainer->init();
+        menuList[row] = pButtonContainer;
+    }
+    button->SetButtonContainer(pButtonContainer);
+    button->SetDimension(mkDimension(buttonW, buttonH));
+    
     if (buttonList[(row*_column+column)])
     	delete buttonList[(row*_column+column)];
     buttonList[(row*_column+column)] = button;

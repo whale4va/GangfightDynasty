@@ -25,6 +25,7 @@ typedef bool Boolean;
 typedef unsigned int Uint32;
 typedef unsigned short Uint16;
 typedef unsigned char Uint8;
+typedef unsigned long long Uint64;
 
 /**
  @brief game point define

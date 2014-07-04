@@ -6,13 +6,11 @@
 
 using cocos2d::CCNode;
 
-//##ModelId=522C730D006A
-class WarningView : public TabView
+class WarningViewTab : public TabView
 {
-  public:
-    //##ModelId=522F2CF7036B
-    void InitWithString();
-
+    
+public:
+    
     //##ModelId=522F2E360215
     inline void SetRichTextView(const RichTextView& rtv)
     {
@@ -25,15 +23,17 @@ class WarningView : public TabView
     //##ModelId=524ED4F00340
     inline bool GetIsOk() {return isOk;}
     
-    void Display();
-    void Dismiss();
-    void Destory();
+    virtual bool OnButton();
+    
+    virtual void Display();
+    virtual void Dismiss();
+    virtual void Destory();
 
     ////////
     // constructors & deconstructors
     ////////
-    WarningView(CCNode* node):TabView(node), warningText(node),
-        okButton(node, ResourceUri::okButtonPictureName), pHolder(NULL)
+    WarningViewTab(CCNode* node):TabView(node), warningText(node),
+        okButton(node, ResourceUri::okButtonPictureName), isOk(false)
     {
         this->subview.Add(&warningText);
         this->subview.Add(&okButton);
@@ -41,8 +41,8 @@ class WarningView : public TabView
         okButton.SetParentView(this);
         okButton.SetId(BTN_OK);
     }
-    WarningView(CCNode* node, String title):TabView(node, title), warningText(node),
-        okButton(node, ResourceUri::okButtonPictureName), pHolder(NULL)
+    WarningViewTab(CCNode* node, String title):TabView(node, title), warningText(node),
+        okButton(node, ResourceUri::okButtonPictureName), isOk(false)
     {
         this->subview.Add(&warningText);
         this->subview.Add(&okButton);
@@ -50,8 +50,8 @@ class WarningView : public TabView
         okButton.SetParentView(this);
         okButton.SetId(BTN_OK);
     }
-    WarningView(CCNode* node, String title, const RichTextView& rtv):TabView(node, title), warningText(rtv),
-        okButton(node, ResourceUri::okButtonPictureName), pHolder(NULL)
+    WarningViewTab(CCNode* node, String title, const RichTextView& rtv):TabView(node, title), warningText(rtv),
+        okButton(node, ResourceUri::okButtonPictureName), isOk(false)
     {
         this->subview.Add(&warningText);
         this->subview.Add(&okButton);
@@ -61,7 +61,7 @@ class WarningView : public TabView
     }
     
     
-    WarningView(const WarningView& orig):TabView(orig), warningText(orig.warningText), isOk(orig.isOk), pHolder(NULL),
+    WarningViewTab(const WarningViewTab& orig):TabView(orig), warningText(orig.warningText), isOk(orig.isOk),
         okButton(orig._node, ResourceUri::okButtonPictureName)
     {
         this->subview.Add(&warningText);
@@ -71,7 +71,7 @@ class WarningView : public TabView
         okButton.SetId(BTN_OK);
     }
     
-    WarningView& operator=(const WarningView& orig)
+    WarningViewTab& operator=(const WarningViewTab& orig)
     {
         if (this != &orig)
         {
@@ -86,16 +86,30 @@ class WarningView : public TabView
         }
         return *this;
     }
-
-  private:
+    
+private:
     //##ModelId=522C732A0082
     RichTextView warningText;
     //##ModelId=522C73370282
     CommonButton okButton;
     //##ModelId=524ED33F0361
     bool isOk;
-    
-    TabGroupView* pHolder;      //承载显示的group view
+};
+
+//##ModelId=522C730D006A
+class WarningView : public TabGroupView
+{
+  public:
+    inline bool GetIsOK()
+    {
+        if (subview.GetLength() == 0)
+            return false;
+        else
+        {
+            return ((WarningViewTab*)subview[0])->GetIsOk();
+        }
+        return false;
+    }
 };
 
 

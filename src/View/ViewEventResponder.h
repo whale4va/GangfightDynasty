@@ -7,6 +7,8 @@
 
 using cocos2d::CCNode;
 using cocos2d::CCLayer;
+using cocos2d::CCTouch;
+using cocos2d::CCEvent;
 
 //##ModelId=523F011C0076
 class ViewEventResponder
@@ -77,6 +79,23 @@ private:
 //    cocos2d::CCLayer* _layer;
 //    ViewEventResponder(cocos2d::CCLayer* l) : _layer(l) {}
     cocos2d::CCNode* _node;     // parent node that this view frame need to be added to
+    
+    // Introduce CCLayer touch event handlers, easy to extend.
+    // touch event handlers
+	virtual bool ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent);
+	virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
+	virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
+	virtual void ccTouchCancelled(CCTouch *pTouch, CCEvent *pEvent);
+    
+    inline void SetCCNode(cocos2d::CCNode* node)
+    {
+        _node = node;
+    }
+    
+    inline cocos2d::CCNode* GetCCNode()
+    {
+        return _node;
+    }
 
     /**
      * @brief Determine whether this viewFrame contain a point
