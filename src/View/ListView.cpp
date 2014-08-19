@@ -17,11 +17,65 @@ void ListViewTab::ShowSpecialButton()
     if (curSpecialIndex == -1)
         return;
     
+    Point viewPoint = position;
+    viewPoint.z += 2.0;     // upper than content views even buttom view
+    viewPoint.y += dimension.h/2 - rowHeight + curShowOffset - rowHeight/2;
+    viewPoint.y -= rowHeight*(curSpecialIndex - curShowIndex);
+    viewPoint.y -= rowHeight;       // the next row after special row.
+    specialButtons.SetPoint(viewPoint);
+    Dimension dim = dimension;
+    dim.h = rowHeight;
+    specialButtons.SetDimension(dim);
     
+    if (curSpecialIndex == curShowIndex + curShowLength -1)
+    {
+        // last row, change its z order and let them cover buttom row
+        for (int j = 0; j < columnNumber; j++)
+        {
+            contentViews[sortOrder[curSpecialIndex]*columnNumber+j]->position.z += 2.0;
+            contentViews[sortOrder[curSpecialIndex]*columnNumber+j]->Dismiss();
+            contentViews[sortOrder[curSpecialIndex]*columnNumber+j]->Display();
+        }
+    }
+    
+    specialButtons.Display();
+    /**** No need to move, just show special buttons and cover next row
+    if (curSpecialIndex != curShowIndex + curShowLength - 1)
+    {
+        // last row is dismissed if special row is not last row
+    }
+    else
+    {
+        // last row is the special row, move up previews rows to make show offset = 0
+        // make the first showing row as dismissed.
+    }
+     ****/
 }
 
 void ListViewTab::HideSpecialButton()
 {
+    
+    /**** No need to move, just show special buttons and cover next row
+    if (curSpecialIndex != curShowIndex + curShowLength - 1)
+    {   // last row is re-displayed.
+    }
+    else
+    {   // first row is still not needed re-displayed. just dismiss special buttons.
+    }
+     ***/
+    specialButtons.Dismiss();
+    
+    if (curSpecialIndex == curShowIndex + curShowLength -1)
+    {
+        // last row, restore its z order to normal and let it be covered by buttom
+        for (int j = 0; j < columnNumber; j++)
+        {
+            contentViews[sortOrder[curSpecialIndex]*columnNumber+j]->position.z = position.z;
+            contentViews[sortOrder[curSpecialIndex]*columnNumber+j]->Dismiss();
+            contentViews[sortOrder[curSpecialIndex]*columnNumber+j]->Display();
+        }
+    }
+    
     curSpecialIndex = -1;
 }
 
@@ -107,7 +161,7 @@ void ListViewTab::Display()
     viewPoint = position;
     viewPoint.x -= dimension.w/2;
     viewPoint.y += dimension.h/2 - rowHeight;
-    viewPoint.y += curShowOffset;
+    viewPoint.y += curShowOffset - rowHeight/2;
     for (int i = curShowIndex; i < curShowIndex+curShowLength; i++)
     {
         viewPoint.x = position.x - dimension.w/2;

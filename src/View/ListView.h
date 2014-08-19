@@ -1,6 +1,6 @@
 #ifndef LISTVIEW_H_HEADER_INCLUDED_AD808747
 #define LISTVIEW_H_HEADER_INCLUDED_AD808747
-#include "CommonButton.h"
+#include "ButtonGroupPopupView.h"
 #include "TabView.h"
 #include "TabGroupView.h"
 class ViewFrame;
@@ -47,13 +47,10 @@ class ListViewTab : public TabView
     void ShowSpecialButton();
     void HideSpecialButton();
     
-    inline void AddSpecialButton(CommonButton* pButton)
+    inline void AddSpecialButton(Uint32 column, String picName)
     {
-        assert(pButton != NULL);
-        specialButtons.Add(pButton);
-        this->subview.Add(pButton);
-        pButton->SetParentView(this);
-        pButton->SetCCNode(_node);
+        assert(!picName.empty());
+        specialButtons.AddCommonButtonAt(1, column, picName);
     }
     
     inline void AddContentView(ViewFrame* pView)
@@ -88,17 +85,22 @@ class ListViewTab : public TabView
     
     //// construstors
     ListViewTab(CCNode* node, String title, Uint8 colNumber, bool multiSelect,
-                bool triggleSpecial, Uint8 rowH) :
+                bool triggleSpecial, Uint8 rowH, Uint32 specialNumber) :
                 TabView(node, title), columnNumber(colNumber),
                 multiSelectable(multiSelect), triggleSpecialButton(triggleSpecial),
                 curShowIndex(0), curShowOffset(0), curShowLength(0), isMoved(false),
 //                okButton(node, ResourceUri::okButtonPictureName),
-                titleViews(true), specialButtons(true), contentViews(true),
+                titleViews(true), contentViews(true),
+                specialButtons(node, 1, specialNumber),
                 rowHeight(rowH), curSpecialIndex(-1),
                 buttomView(node, ResourceUri::tabviewBackgroundPictureName)
     {
         assert(columnNumber > 0);
         assert(rowHeight > 0);
+        specialButtons.SetParentView(this);
+        buttomView.SetParentView(this);
+        this->subview.Add(&specialButtons);
+        this->subview.Add(&buttomView);
 //        okButton.SetParentView(this);
 //        this->subview.Add(&okButton);
 //        okButton.SetId(BTN_OK);
@@ -165,15 +167,12 @@ class ListViewTab : public TabView
     virtual void Destory()
     {
         Dismiss();
-        for (int i  = 0; i< specialButtons.GetLength(); ++i)
-        {
-            specialButtons[i]->Destory();
-        }
         for (int i = 0; i< contentViews.GetLength(); ++i)
         {
             contentViews[i]->Destory();
         }
         buttomView.Destory();
+        specialButtons.Destory();
     }
     
 private:
@@ -188,7 +187,8 @@ private:
     //##ModelId=522B4BF9014E
 //    CommonButton okButton;
     //##ModelId=522B4C6302DF
-    List<CommonButton*> specialButtons;
+//    List<CommonButton*> specialButtons;
+    ButtonGroupPopupView specialButtons;
     //##ModelId=522B4C8100F3
     bool triggleSpecialButton;
     //##ModelId=522B4C98031D

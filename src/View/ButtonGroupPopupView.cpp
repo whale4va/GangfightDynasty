@@ -52,7 +52,7 @@ void ButtonGroupPopupView::AddCommonButtonAt(Uint32 row, Uint32 column, String p
     assert(column < _column);
     if (framesName.empty())
     {
-        framesName = "Buttons/buttons.plist";   // default sprite frame texture packer file
+        framesName = ResourceUri::buttonPictureAtlas;   // default sprite frame texture packer file
     }
     
     ComputeDividerDimension();
