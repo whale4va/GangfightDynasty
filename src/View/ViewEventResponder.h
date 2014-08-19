@@ -4,6 +4,7 @@
 #include "../Common/types.h"
 #include "../Common/String.h"
 #include "../Common/List.h"
+#include "../Common/constants.h"
 
 using cocos2d::CCNode;
 using cocos2d::CCLayer;
@@ -18,7 +19,10 @@ private:
     
   public:
     //##ModelId=523F025402A1
-    virtual bool OnListItemSelected();
+    virtual bool OnListItemSelected(int rowIndex);
+    
+    // Unselected list item, or deselected
+    virtual bool OnListItemUnselected(int rowIndex);
 
     //##ModelId=523F0258027F
     virtual bool OnButton();
@@ -27,7 +31,7 @@ private:
     virtual bool OnTap();
 
     //##ModelId=523F040402A4
-    virtual bool OnSortListByColumn();
+    virtual bool OnSortListByColumn(int columnIndex);
 
     //##ModelId=523F10C500AC
     virtual bool OnTapMove();

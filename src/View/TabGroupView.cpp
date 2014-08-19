@@ -83,6 +83,12 @@ void TabGroupView::Display()
 	{
 		_node->addChild(this, position.z);
 		this->setTouchMode(cocos2d::kCCTouchesOneByOne);	// targeted.
+        if (isModal) {
+            // if it's modal, set priority and background color
+            this->setColor(ToColor3B(MODAL_LAYER_COLOR));
+            this->setOpacity(MODAL_OPACITY);
+            this->setTouchPriority(cocos2d::kCCMenuHandlerPriority-1);     // priority = -129 = kCCMenuHandlerPriority - 1
+        }
 		this->setTouchEnabled(true);
 	}
 }
@@ -144,15 +150,24 @@ void TabGroupView::onExit()
 bool TabGroupView::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
 {
 	_touchStartPt = pTouch->getLocation();
-	if (AreaContainCCPoint(_touchStartPt, position, dimension))
-		return true;
+	if (AreaContainCCPoint(_touchStartPt, position, dimension)){
+        for (int i = 0; i < subview.GetLength(); ++i) {
+            if (subview[i] ->ccTouchBegan(pTouch, pEvent)) {
+                SET_U64_BIT(ccEventProcessed, i);
+            }
+        }
+       return true;
+    }
 	else
 		return false;
 }
 
 void TabGroupView::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent)
 {
-
+    for (int i= 0; i < subview.GetLength(); ++i) {
+        if (ISSET_U64_BIT(ccEventProcessed, i))
+            subview[i]->ccTouchMoved(pTouch, pEvent);
+    }
 }
 
 void TabGroupView::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
@@ -189,13 +204,19 @@ void TabGroupView::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 	}
 	else
 	{	// touched at tab view area, pass to sub tab view.
-		((TabView*)subview[_selectedIndex])->ccTouchEnded(pTouch, pEvent);
+        if(ISSET_U64_BIT(ccEventProcessed, _selectedIndex)) {
+            ((TabView*)subview[_selectedIndex])->ccTouchEnded(pTouch, pEvent);
+            CLEAR_U64_BIT(ccEventProcessed, _selectedIndex);
+        }
 	}
 }
 
 void TabGroupView::ccTouchCancelled(CCTouch *pTouch, CCEvent *pEvent)
 {
-
+    if (ISSET_U64_BIT(ccEventProcessed, _selectedIndex)) {
+        ((TabView*)subview[_selectedIndex])->ccTouchEnded(pTouch, pEvent);
+        CLEAR_U64_BIT(ccEventProcessed, _selectedIndex);
+    }
 }
 
 bool TabGroupView::OnButton()

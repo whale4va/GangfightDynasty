@@ -23,11 +23,68 @@ public:
     //##ModelId=524ED4F00340
     inline bool GetIsOk() {return isOk;}
     
-    virtual bool OnButton();
+    virtual bool OnButton()
+    {
+        CCLOG("WarningViewTab button clicked on %d(0x%X).\n", _senderId, _senderId);
+        bool ret = false;
+        switch (_senderId)
+        {
+            case BTN_OK:
+                isOk = true;
+                ret = true;
+                parentView->Dismiss();
+                break;
+            case BTN_CANCEL:
+                ret = true;
+                parentView->Dismiss();
+                break;
+            default:
+                break;
+        }
+        return ret;
+    }
     
     virtual void Display();
-    virtual void Dismiss();
-    virtual void Destory();
+    virtual void Dismiss()
+    {
+        okButton.Dismiss();
+        warningText.Dismiss();
+    }
+    
+    virtual void Destory()
+    {
+        Dismiss();
+        okButton.Destory();
+        warningText.Destory();
+    }
+    
+    // touch event handlers
+	virtual bool ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
+    {
+        _needEvent = okButton.ccTouchBegan(pTouch, pEvent);
+        return _needEvent;
+    }
+    
+	virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent)
+    {
+        if (_needEvent)
+            okButton.ccTouchMoved(pTouch, pEvent);
+    }
+    
+	virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
+    {
+        if (_needEvent) {
+            okButton.ccTouchEnded(pTouch, pEvent);
+            _needEvent = false;
+        }
+    }
+    
+	virtual void ccTouchCancelled(CCTouch *pTouch, CCEvent *pEvent) {
+        if (_needEvent) {
+            okButton.ccTouchCancelled(pTouch, pEvent);
+            _needEvent = false;
+        }
+    }
 
     ////////
     // constructors & deconstructors
@@ -94,12 +151,18 @@ private:
     CommonButton okButton;
     //##ModelId=524ED33F0361
     bool isOk;
+    
+    static int borderSize;
 };
 
 //##ModelId=522C730D006A
 class WarningView : public TabGroupView
 {
   public:
+    WarningView(CCNode* node):TabGroupView(node) {
+        this->SetIsModal(true);
+    }
+    
     inline bool GetIsOK()
     {
         if (subview.GetLength() == 0)

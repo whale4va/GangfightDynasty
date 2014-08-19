@@ -13,6 +13,7 @@ const char* ResourceUri::bitmapFontFileName = "fonts/characters.fnt";
 
 // 背景图片的贴图集文件路径
 const char* ResourceUri::backgroundPictureAtlas = "Backgrounds/backgrounds.plist";
+const char* ResourceUri::tabviewBackgroundPictureName = "TabViewBackground.png";
 
 // 按钮图片集的文件路径
 const char* ResourceUri::buttonPictureAtlas = "Buttons/buttons.plist";

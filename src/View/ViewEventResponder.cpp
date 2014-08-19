@@ -1,7 +1,12 @@
 #include "ViewEventResponder.h"
 
 //##ModelId=523F025402A1
-bool ViewEventResponder::OnListItemSelected()
+bool ViewEventResponder::OnListItemSelected(int rowIndex)
+{
+    return false;
+}
+
+bool ViewEventResponder::OnListItemUnselected(int rowIndex)
 {
     return false;
 }
@@ -19,7 +24,7 @@ bool ViewEventResponder::OnTap()
 }
 
 //##ModelId=523F040402A4
-bool ViewEventResponder::OnSortListByColumn()
+bool ViewEventResponder::OnSortListByColumn(int columnIndex)
 {
     return false;
 }

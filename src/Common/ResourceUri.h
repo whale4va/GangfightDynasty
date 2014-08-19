@@ -19,6 +19,7 @@ public:
     
     // 背景图片的贴图集路径
     static const char* backgroundPictureAtlas;
+    static const char* tabviewBackgroundPictureName;
     
     // 按钮贴图集文件&路径
     static const char* buttonPictureAtlas;

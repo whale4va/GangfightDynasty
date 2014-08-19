@@ -76,6 +76,18 @@ public:
         return;
     }
     
+    inline int Find(T& var) throw (ExceptionId)
+    {
+        if (length == 0)
+            return invalidIndex;
+        for (int i = 0; i < length; i++)
+        {
+            if (var == *(data +i))
+                return i;
+        }
+        return invalidIndex;
+    }
+    
     /** @brief retrieve element at specific position */
     inline T& operator[](int index) throw (ExceptionId)
     {
@@ -164,6 +176,9 @@ public:
         for (int i = 0; i < length; i++)
             *(data + i) = *(lst.data + i);
     }
+    /** increase string buffer size for every allocate memory */
+    const int increaseSize;
+    const int invalidIndex;
     
 private:
 //    List() {}   // block default constructor.
@@ -172,9 +187,6 @@ private:
     int size;
     bool isPointers;
     
-    /** increase string buffer size for every allocate memory */
-    const int increaseSize;
-    const int invalidIndex;
 };
 
 #endif

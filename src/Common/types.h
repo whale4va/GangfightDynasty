@@ -64,6 +64,14 @@ typedef struct _Dimension
     _Dimension():w(0.0),h(0.0){}
     
     _Dimension(const _Dimension& orig):w(orig.w),h(orig.h) {}
+    
+    bool IsValid()
+    {
+        if (w > FLOAT_MINOR_LIMIT && h > FLOAT_MINOR_LIMIT)
+            return true;
+        else
+            return false;
+    }
 }Dimension;
 
 inline Dimension mkDimension(float w, float h)
@@ -149,6 +157,8 @@ typedef enum _ExceptionId
     Invalid_Dimension,				// Invalid (illegal) dimension defined.
     Invalid_RichTextFormat,			// Invalid (illegal) rich text format string.
     Invalid_RichTextElement,		// Invalid (illegal) rich text element not match.
+    Invalid_ListRowHeight,          // Invalid (illegal) list view row height in pixel.
+    Invalid_ColumnWidthPercentage,  // Invalid (illegal) column widhth in percentage.
     Format_Parsing_Error,			// format string parsing error.
     String_Not_UTF8,				// string is not in UTF-8 encoding.
     Method_Not_Support,				// This method not support in the object.
@@ -239,5 +249,9 @@ typedef enum _EventType
     CCLOG("throw exception %d from %s:%d\n", _EID_, __FILE__, __LINE__); \
     throw (_EID_); \
 }
+
+#define SET_U64_BIT(_U64_,_POS_) _U64_ |= ((Uint64)0x01) << _POS_ )
+#define ISSET_U64_BIT(_U64_,_POS_) (_U64_ & ((Uint64)0x01 << _POS_))
+#define CLEAR_U64_BIT(_U64_,_POS_) _U64_ &= (~((Uint64)0x01 << _POS_))
 
 #endif

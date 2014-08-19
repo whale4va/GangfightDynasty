@@ -3,19 +3,21 @@
 #include "TabView.h"
 
 //##ModelId=522C76D50103
-class TabGroupView : public ViewFrame, public CCLayer
+class TabGroupView : public ViewFrame, public CCLayerColor
 {
 
 public:
 
 	TabGroupView(CCNode* n):ViewFrame(n), _selectedIndex(0), _titleList(true),
 	_titleSpriteList(true), _dismissButton(this, "tabview_dismiss_normal.png"),
-	_background(this, tabviewBackground)
+	_background(this, tabviewBackground), isModal(false)
 	{
 		_dismissButton._id = BTN_TAB_GROUP_DISMISS;
 		_dismissButton.parentView = this;
 		_background.parentView = this;
 	}
+    
+    inline void SetIsModal(bool modal) { isModal = modal; }
 
 	virtual ~TabGroupView() {Destory();}
 
@@ -109,6 +111,8 @@ protected:
 
     // indicate which tab is selected in the group
     int _selectedIndex;
+    Uint64 ccEventProcessed;        //记录子tab是否需要处理事件，是则透传事件（对于模块对话框）使用
+    bool isModal;                   //是否以模态的方式显示
 
     //##ModelId=522B405602FE
     CommonButton _dismissButton;

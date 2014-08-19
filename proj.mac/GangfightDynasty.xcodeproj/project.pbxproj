@@ -798,6 +798,7 @@
 		CE80D0F019436ADF0094A0A6 /* horsing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = horsing.jpg; sourceTree = "<group>"; };
 		CE80D0F119436ADF0094A0A6 /* PopupBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PopupBackground.png; sourceTree = "<group>"; };
 		CE80D0F219436ADF0094A0A6 /* WarningViewBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WarningViewBackground.png; sourceTree = "<group>"; };
+		CEA514A619919E21006AFF69 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		CEB5732419474E8A00CE9E06 /* ResourceUri.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceUri.h; sourceTree = "<group>"; };
 		CEB5732519474FAF00CE9E06 /* ResourceUri.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceUri.cpp; sourceTree = "<group>"; };
 		CED961A91940C02B009AA86A /* ids.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ids.h; sourceTree = "<group>"; };
@@ -1856,6 +1857,7 @@
 				CED961AE1940C02B009AA86A /* types.h */,
 				CEB5732419474E8A00CE9E06 /* ResourceUri.h */,
 				CEB5732519474FAF00CE9E06 /* ResourceUri.cpp */,
+				CEA514A619919E21006AFF69 /* constants.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";

@@ -11,13 +11,14 @@ using cocos2d::CCTouch;
 using cocos2d::CCSet;
 using cocos2d::CCEvent;
 using cocos2d::CCSprite;
+using cocos2d::CCLayerColor;
 
 //##ModelId=522B3FDC03DE
 class TabView : public ViewFrame
 {
 public:
-	TabView(CCNode* n) : ViewFrame(n), _title("Blank Title") {}
-	TabView(CCNode* n, String title) : ViewFrame(n), _title(title){}
+	TabView(CCNode* n) : ViewFrame(n), _title("Blank Title"), _needEvent(false) {}
+	TabView(CCNode* n, String title) : ViewFrame(n), _title(title), _needEvent(false) {}
     
     TabView(const TabView& o):ViewFrame(o),_title(o._title) {}
     TabView& operator=(const TabView& o)
@@ -52,6 +53,7 @@ public:
   protected:
     //##ModelId=522B40460321
     String _title;
+    bool _needEvent;
 
   private:
     TabView();

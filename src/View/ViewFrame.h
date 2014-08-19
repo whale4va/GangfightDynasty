@@ -111,6 +111,19 @@ private:
         return cocos2d::CCRect(position.x, position.y,
                                dimension.w, dimension.h);
     }
+    
+    inline bool IsContainCCPoint(cocos2d::CCPoint point)
+    {
+        if (dimension.IsValid())
+        {
+            if (point.x >= position.x - dimension.w/2 &&
+                point.x <= position.x + dimension.w/2 &&
+                point.y >= position.y - dimension.h/2 &&
+                point.y <= position.y + dimension.h/2)
+                return true;
+        }
+        return false;
+    }
 };
 
 /**

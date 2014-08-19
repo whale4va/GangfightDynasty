@@ -66,7 +66,7 @@ class ButtonGroupPopupView : public ViewFrame
     inline virtual bool ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
     {
         bool ret = false;
-        ccEventProcessed = 0;
+        //ccEventProcessed = 0;
         if (!menuList.Empty())
         {
             for (int i = 0; i < menuList.GetLength(); ++i)
@@ -102,6 +102,8 @@ class ButtonGroupPopupView : public ViewFrame
                 if (ccEventProcessed & (0x01<<i))
                 {
                     menuList[i]->ccTouchEnded(pTouch, pEvent);
+                    //事件处理完，清空之前的记录
+                    CLEAR_U64_BIT(ccEventProcessed, i);
                 }
             }
         }
@@ -115,6 +117,8 @@ class ButtonGroupPopupView : public ViewFrame
                 if (ccEventProcessed & (0x01<<i))
                 {
                     menuList[i]->ccTouchCancelled(pTouch, pEvent);
+                    //事件处理完，清空之前的记录
+                    CLEAR_U64_BIT(ccEventProcessed, i);
                 }
             }
         }
