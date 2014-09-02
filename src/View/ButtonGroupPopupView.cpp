@@ -141,7 +141,17 @@ void ButtonGroupPopupView::Display()
 	for (int i = 0; i < buttonList.GetLength(); i++)
 	{
 		if (buttonList[i] != NULL)
+        {
+            // update button position again. make sure
+            Point pt = position;
+            if (_row > 1)
+            {
+                pt.y += dimension.h/2;
+                pt.y -= ((i/_column)*(dividerH+buttonH)+(dividerH + buttonH/2));
+            }
+            buttonList[i]->SetPoint(pt);
 			buttonList[i]->Display();
+        }
 	}
 
 	for (int i = 0; i < menuList.GetLength(); i++)

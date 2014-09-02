@@ -261,11 +261,10 @@
 		CE80D0F719436ADF0094A0A6 /* PopupBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CE80D0F119436ADF0094A0A6 /* PopupBackground.png */; };
 		CE80D0F819436ADF0094A0A6 /* WarningViewBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CE80D0F219436ADF0094A0A6 /* WarningViewBackground.png */; };
 		CEB5732619474FAF00CE9E06 /* ResourceUri.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB5732519474FAF00CE9E06 /* ResourceUri.cpp */; };
+		CEB818DC19AA3B18005C874F /* NumberTabView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB818DB19AA3B18005C874F /* NumberTabView.cpp */; };
 		CED961E61940C02B009AA86A /* List.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961AA1940C02B009AA86A /* List.cpp */; };
 		CED961E71940C02B009AA86A /* String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961AC1940C02B009AA86A /* String.cpp */; };
-		CED961E81940C02B009AA86A /* ArmyPopupView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961B01940C02B009AA86A /* ArmyPopupView.cpp */; };
 		CED961E91940C02B009AA86A /* ArmyReadyView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961B21940C02B009AA86A /* ArmyReadyView.cpp */; };
-		CED961EA1940C02B009AA86A /* ArmyView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961B41940C02B009AA86A /* ArmyView.cpp */; };
 		CED961EB1940C02B009AA86A /* ButtonGroupPopupView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961B61940C02B009AA86A /* ButtonGroupPopupView.cpp */; };
 		CED961EC1940C02B009AA86A /* CityPopupView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961B81940C02B009AA86A /* CityPopupView.cpp */; };
 		CED961EE1940C02B009AA86A /* CommonButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961BC1940C02B009AA86A /* CommonButton.cpp */; };
@@ -801,18 +800,16 @@
 		CEA514A619919E21006AFF69 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		CEB5732419474E8A00CE9E06 /* ResourceUri.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceUri.h; sourceTree = "<group>"; };
 		CEB5732519474FAF00CE9E06 /* ResourceUri.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceUri.cpp; sourceTree = "<group>"; };
+		CEB818DA19AA2E94005C874F /* NumberTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberTabView.h; sourceTree = "<group>"; };
+		CEB818DB19AA3B18005C874F /* NumberTabView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NumberTabView.cpp; sourceTree = "<group>"; };
 		CED961A91940C02B009AA86A /* ids.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ids.h; sourceTree = "<group>"; };
 		CED961AA1940C02B009AA86A /* List.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = List.cpp; sourceTree = "<group>"; };
 		CED961AB1940C02B009AA86A /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		CED961AC1940C02B009AA86A /* String.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = String.cpp; sourceTree = "<group>"; };
 		CED961AD1940C02B009AA86A /* String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = String.h; sourceTree = "<group>"; };
 		CED961AE1940C02B009AA86A /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
-		CED961B01940C02B009AA86A /* ArmyPopupView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArmyPopupView.cpp; sourceTree = "<group>"; };
-		CED961B11940C02B009AA86A /* ArmyPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyPopupView.h; sourceTree = "<group>"; };
 		CED961B21940C02B009AA86A /* ArmyReadyView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArmyReadyView.cpp; sourceTree = "<group>"; };
 		CED961B31940C02B009AA86A /* ArmyReadyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyReadyView.h; sourceTree = "<group>"; };
-		CED961B41940C02B009AA86A /* ArmyView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArmyView.cpp; sourceTree = "<group>"; };
-		CED961B51940C02B009AA86A /* ArmyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyView.h; sourceTree = "<group>"; };
 		CED961B61940C02B009AA86A /* ButtonGroupPopupView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonGroupPopupView.cpp; sourceTree = "<group>"; };
 		CED961B71940C02B009AA86A /* ButtonGroupPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonGroupPopupView.h; sourceTree = "<group>"; };
 		CED961B81940C02B009AA86A /* CityPopupView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CityPopupView.cpp; sourceTree = "<group>"; };
@@ -1865,12 +1862,8 @@
 		CED961AF1940C02B009AA86A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CED961B01940C02B009AA86A /* ArmyPopupView.cpp */,
-				CED961B11940C02B009AA86A /* ArmyPopupView.h */,
 				CED961B21940C02B009AA86A /* ArmyReadyView.cpp */,
 				CED961B31940C02B009AA86A /* ArmyReadyView.h */,
-				CED961B41940C02B009AA86A /* ArmyView.cpp */,
-				CED961B51940C02B009AA86A /* ArmyView.h */,
 				CED961B61940C02B009AA86A /* ButtonGroupPopupView.cpp */,
 				CED961B71940C02B009AA86A /* ButtonGroupPopupView.h */,
 				CED961B81940C02B009AA86A /* CityPopupView.cpp */,
@@ -1901,6 +1894,8 @@
 				CED961DB1940C02B009AA86A /* ViewFrame.h */,
 				CED961E21940C02B009AA86A /* WarningView.cpp */,
 				CED961E31940C02B009AA86A /* WarningView.h */,
+				CEB818DA19AA2E94005C874F /* NumberTabView.h */,
+				CEB818DB19AA3B18005C874F /* NumberTabView.cpp */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2217,9 +2212,7 @@
 				379BBAB717F03FDE00829B88 /* CCSSceneReader.cpp in Sources */,
 				CED961E61940C02B009AA86A /* List.cpp in Sources */,
 				CED961E71940C02B009AA86A /* String.cpp in Sources */,
-				CED961E81940C02B009AA86A /* ArmyPopupView.cpp in Sources */,
 				CED961E91940C02B009AA86A /* ArmyReadyView.cpp in Sources */,
-				CED961EA1940C02B009AA86A /* ArmyView.cpp in Sources */,
 				CED961EB1940C02B009AA86A /* ButtonGroupPopupView.cpp in Sources */,
 				CED961EC1940C02B009AA86A /* CityPopupView.cpp in Sources */,
 				CED961EE1940C02B009AA86A /* CommonButton.cpp in Sources */,
@@ -2247,6 +2240,7 @@
 				CE18447719431FC3003BF9B0 /* SubMap.cpp in Sources */,
 				CE18447819431FC3003BF9B0 /* Warfare.cpp in Sources */,
 				CEB5732619474FAF00CE9E06 /* ResourceUri.cpp in Sources */,
+				CEB818DC19AA3B18005C874F /* NumberTabView.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

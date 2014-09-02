@@ -219,6 +219,8 @@ typedef enum _StrategyType
 }StrategyType;
 #endif /* STRATEGYTYPE_H_HEADER_INCLUDED_AC6D35D6 */
 
+
+
 /**
  * Event Type definition
  **/
@@ -232,7 +234,6 @@ typedef enum _EventType
     Event_Army_Active           //战斗中，部队激活
 }EventType;
 #endif /* EVENTTYPE_H_HEADER_INCLUDED_AC6D220D */
-
 
 
 /*****************************************

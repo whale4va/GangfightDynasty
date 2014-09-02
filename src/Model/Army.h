@@ -24,6 +24,9 @@ class Army
 
     //##ModelId=526CC99302C0
     void SetLeaderId(Uint32 id);
+    
+    // get army object by its id.
+    Army GetArmyById(Uint32 id);
 
   private:
     //##ModelId=5228836F0087

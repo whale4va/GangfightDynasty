@@ -23,6 +23,13 @@ class UpgradeView : public TabView
 
     //##ModelId=52691B08002A
     Event* GenerateEvent();
+    
+    
+    virtual bool OnButton();
+    
+    virtual void Display();
+    virtual void Dismiss();
+    virtual void Destory();
 
   private:
     //##ModelId=522C65B70046
@@ -36,11 +43,11 @@ class UpgradeView : public TabView
     //##ModelId=522C6C850276
     Uint32 expense;
     //##ModelId=522C6C97025B
-    ListView executorsList;
+    ListViewTab executorsList;
     //##ModelId=522C6CCC017F
     RichTextView resultView;
     //##ModelId=522C6CD90144
-    CommonButton addGoldButton;
+//    CommonButton addGoldButton;
     /** indicate which type data need to be upgraded. */
     //##ModelId=5267D90302F4
     UpgradeType type;

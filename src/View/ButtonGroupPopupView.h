@@ -27,6 +27,14 @@ class ButtonGroupPopupView : public ViewFrame
      @param[in] framseName=empty the button texture frames file name.
      */
     void AddCommonButtonAt(Uint32 row, Uint32 column, String picName, String framesName = String()) throw (ExceptionId);
+   
+    /**
+     @brief set common button id for specific row and column
+     */
+    inline void SetButtonIdAd(Uint32 row, Uint32 column, Uint32 id)
+    {
+        buttonList[row*_column + column]->SetId(id);
+    }
     
     /**
      @brief get specific common button by row - column

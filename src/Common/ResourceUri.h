@@ -17,6 +17,9 @@ public:
     // 图片文字的路径
     static const char* bitmapFontFileName;
     
+    // 城市策略字符串
+    static const char* StrategyName[];
+    
     // 背景图片的贴图集路径
     static const char* backgroundPictureAtlas;
     static const char* tabviewBackgroundPictureName;
@@ -27,6 +30,25 @@ public:
     static const char* okButtonPictureName;
     static const char* cancelButtonPictureName;
     static const char* tabviewDismissButtonPictureName;
+    
+    // 数字键盘按钮的图片资源
+    static const char* button1PictureName;
+    static const char* button2PictureName;
+    static const char* button3PictureName;
+    static const char* button4PictureName;
+    static const char* button5PictureName;
+    static const char* button6PictureName;
+    static const char* button7PictureName;
+    static const char* button8PictureName;
+    static const char* button9PictureName;
+    static const char* button0PictureName;
+    static const char* button00PictureName;
+    static const char* button000PictureName;
+    
+    // 数字键盘额外键的图片资源
+    static const char* backspaceButtonPictureName;
+    static const char* maxButtonPictureName;
+    static const char* clearButtonPictureName;
     
 };
 

@@ -30,8 +30,42 @@ class Leader
     String header;
     //##ModelId=522B25730009
     Army* manageArmy;
+    
+    
+public:
+    
+    typedef enum _sortField
+    {
+        SORT_BY_NAME = 0,
+        SORT_BY_SMART,
+        SORT_BY_POWER
+    }sortField;
+    
+    // static method, query all leaders
+    static List<Leader*> QueryAllLeaders();
+    
+    // query this player can used leaders.
+    static List<Leader*> QueryAvailableLeaders(sortField sort=SORT_BY_SMART,
+                                               int start = 0,
+                                               int num = -1);
+    
+    // query with sort type and range(index, number)
+    static List<Leader*> QueryWithSortRange(sortField sort=SORT_BY_SMART,
+                                            int start = 0,
+                                            int num = -1);
+    
+    // get leader object by its id.
+    static Leader GetLeaderById(Uint32 id);
+    
+    
+    // getter & setter
+    inline String GetName() { return name; }
+    inline void SetName(String n) { name = n; }
+    
+    
+    
+    
 };
-
 
 
 #endif /* LEADER_H_HEADER_INCLUDED_AC6D68C0 */

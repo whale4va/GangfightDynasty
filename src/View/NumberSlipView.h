@@ -1,6 +1,7 @@
 #ifndef NUMBERSLIPVIEW_H_HEADER_INCLUDED_AD80DAEE
 #define NUMBERSLIPVIEW_H_HEADER_INCLUDED_AD80DAEE
-#include "CommonButton.h"
+#include "ButtonGroupPopupView.h"
+#include "PureColorBar.h"
 #include "PictureView.h"
 #include "TabView.h"
 #include "TextView.h"
@@ -43,16 +44,23 @@ class NumberSlipView : public TabView
     CommonButton lowerButton;
     //##ModelId=522C747402D0
     Uint32 stepValue;
-    //##ModelId=522C74AA0330
-    List<CommonButton> changeDefaultValueButtons;
-    //##ModelId=522C74D30029
-    Uint32 barColor;
-    //##ModelId=526D0CE00059
-    Uint32 exceedBarColor;
+
+//    //##ModelId=522C74AA0330
+//    List<CommonButton> changeDefaultValueButtons;
+//    //##ModelId=522C74F60356
+//    PictureView slipBar;
+//     //##ModelId=522C74D30029
+//    Uint32 barColor;
+//    //##ModelId=526D0CE00059
+//    Uint32 exceedBarColor;
+    
+    ButtonGroupPopupView changeDefaultValueButtons;
+   
     //##ModelId=522C74E6003E
     CommonButton slipButton;
-    //##ModelId=522C74F60356
-    PictureView slipBar;
+    
+    PureColorBar slipBar;
+    
 };
 
 

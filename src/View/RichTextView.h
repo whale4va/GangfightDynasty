@@ -76,11 +76,23 @@ class RichTextView : public ViewFrame
 {
   public:
 	RichTextView(CCNode* n) : ViewFrame(n), elementList(true), formatColor(0xFFFFFFFF),
-	formatScale(1.0), ccList(true), needParse(true) {}
+	formatScale(1.0), ccList(true), needParse(true)
+    {
+        formatFont = ResourceUri::bitmapFontFileName;
+    }
+    
 	RichTextView(CCNode* n, String str) : ViewFrame(n), elementList(true), needParse(true),
-			formatContent(str), formatScale(1.0), formatColor(0xFFFFFFFF), ccList(true) {}
+			formatContent(str), formatScale(1.0), formatColor(0xFFFFFFFF), ccList(true)
+    {
+        formatFont = ResourceUri::bitmapFontFileName;
+    }
+    
 	RichTextView(CCNode* n, String str, Uint32 color) : ViewFrame(n), elementList(true),
-			formatContent(str), formatScale(1.0), formatColor(color), ccList(true), needParse(true) {}
+			formatContent(str), formatScale(1.0), formatColor(color), ccList(true), needParse(true)
+    {
+        formatFont = ResourceUri::bitmapFontFileName;
+    }
+    
 	RichTextView(CCNode* n, String str, Uint32 color, String font) : ViewFrame(n), elementList(true),
 			formatContent(str), formatScale(1.0), formatColor(color), ccList(true), needParse(true), formatFont(font) {}
     

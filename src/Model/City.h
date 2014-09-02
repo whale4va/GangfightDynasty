@@ -9,6 +9,10 @@
 class City
 {
   public:
+    
+    // agriculture & business quota for each level;
+    static Uint32 levelQuota;
+    
     //##ModelId=5276163C0354
     Dimension GetCityDimension();
 

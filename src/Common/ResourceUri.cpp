@@ -22,4 +22,28 @@ const char* ResourceUri::okButtonPictureName = "ok_button_normal.png";
 const char* ResourceUri::cancelButtonPictureName = "cancel_button_normal.png";
 const char* ResourceUri::tabviewDismissButtonPictureName = "tabview_dismiss_normal.png";
 
+// 数字键盘按钮的图片资源
+const char* ResourceUri::button0PictureName = "0_button_normal.png";
+const char* ResourceUri::button1PictureName = "1_button_normal.png";
+const char* ResourceUri::button2PictureName = "2_button_normal.png";
+const char* ResourceUri::button3PictureName = "3_button_normal.png";
+const char* ResourceUri::button4PictureName = "4_button_normal.png";
+const char* ResourceUri::button5PictureName = "5_button_normal.png";
+const char* ResourceUri::button6PictureName = "6_button_normal.png";
+const char* ResourceUri::button7PictureName = "7_button_normal.png";
+const char* ResourceUri::button8PictureName = "8_button_normal.png";
+const char* ResourceUri::button9PictureName = "9_button_normal.png";
+const char* ResourceUri::button00PictureName = "00_button_normal.png";
+const char* ResourceUri::button000PictureName = "000_button_normal.png";
+
+const char* ResourceUri::backspaceButtonPictureName = "backspace_button_normal.png";
+const char* ResourceUri::maxButtonPictureName = "max_button_normal.png";
+const char* ResourceUri::clearButtonPictureName = "clear_button_normal.png";
+
+// 城市策略字符串
+const char* ResourceUri::StrategyName[] =
+{
+    "内政优先",
+    "攻略优先"
+};
 

@@ -50,7 +50,7 @@ class ListViewTab : public TabView
     inline void AddSpecialButton(Uint32 column, String picName)
     {
         assert(!picName.empty());
-        specialButtons.AddCommonButtonAt(1, column, picName);
+        specialButtons.AddCommonButtonAt(0, column, picName);
     }
     
     inline void AddContentView(ViewFrame* pView)

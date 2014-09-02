@@ -1,5 +1,7 @@
 #include "City.h"
 
+Uint32 City::levelQuota = 1500;
+
 //##ModelId=5276163C0354
 Dimension City::GetCityDimension()
 {
