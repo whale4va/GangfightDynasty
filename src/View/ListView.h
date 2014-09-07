@@ -170,6 +170,7 @@ class ListViewTab : public TabView
         for (int i = 0; i< contentViews.GetLength(); ++i)
         {
             contentViews[i]->Destory();
+            delete contentViews[i];
         }
         buttomView.Destory();
         specialButtons.Destory();

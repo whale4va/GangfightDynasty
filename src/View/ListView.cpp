@@ -396,9 +396,19 @@ void ListViewTab::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEven
                     }
                     
                     // record the row which is selected and notify parent view.
-                    selectedItem.Add(sortOrder[newShowIndex]);  // convert showing index to data index.
-                    if (parentView != NULL)
-                        parentView->OnListItemSelected(sortOrder[newShowIndex]);
+                    int existedIndex = selectedItem.Find(sortOrder[newShowIndex]);
+                    if (existedIndex != selectedItem.invalidIndex)
+                    {
+                        selectedItem.Remove(existedIndex);
+                        if (parentView != NULL)
+                            parentView->OnListItemUnselected(sortOrder[newShowIndex]);
+                    }
+                    else
+                    {
+                        selectedItem.Add(sortOrder[newShowIndex]);  // convert showing index to data index.
+                        if (parentView != NULL)
+                            parentView->OnListItemSelected(sortOrder[newShowIndex]);
+                    }
                 }
             }
             return;

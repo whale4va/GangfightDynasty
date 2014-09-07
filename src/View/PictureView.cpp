@@ -10,7 +10,7 @@ void PictureView::Display()
     
     if (pSprite)
     {
-        if (dimension.w != 0 && dimension.h != 0)
+        if (dimension.IsValid())
         {
             cocos2d::CCSize picSize = pSprite->getContentSize();
             float scaleX = (float)dimension.w/picSize.width;
@@ -19,6 +19,10 @@ void PictureView::Display()
             pSprite->setScaleY(scaleY);
             //CCLOG("Picture content size = (%f, %f)\n", picSize.width, picSize.height);
             //pSprite->setTextureRect(GetCCRect()); // only cut out dedicate area
+        }
+        else
+        {
+            THROW(Invalid_Dimension);
         }
         
         pSprite->setPosition(ToCCPoint(position));

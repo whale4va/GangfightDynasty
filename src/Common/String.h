@@ -20,6 +20,7 @@ public:
     String() : data(NULL), length(0), size(0) {}
     String(const char* str);
     String(const String& str);
+    String(Uint32 val);
     
     String& operator=(const String& str);
     String& operator=(const char* str);

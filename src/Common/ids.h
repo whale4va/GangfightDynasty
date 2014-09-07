@@ -39,4 +39,7 @@
 #define BTN_CLEAR 0x00FF0011
 #define BTN_MAX 0x00FF0012
 
+// Enter city button
+#define BTN_ENTER_CITY 0x00FF0013
+
 #endif /* IDS_H_ */

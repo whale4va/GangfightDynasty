@@ -25,8 +25,12 @@ class Army
     //##ModelId=526CC99302C0
     void SetLeaderId(Uint32 id);
     
+    inline String GetName() { return name; }
+    inline WeaponType GetWeaponType() { return weaponCategory; }
+    inline Uint32 GetSoldier() { return soldier; }
+    
     // get army object by its id.
-    Army GetArmyById(Uint32 id);
+    static Army GetArmyById(Uint32 id);
 
   private:
     //##ModelId=5228836F0087

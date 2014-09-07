@@ -21,6 +21,7 @@ const char* ResourceUri::buttonPictureAtlas = "Buttons/buttons.plist";
 const char* ResourceUri::okButtonPictureName = "ok_button_normal.png";
 const char* ResourceUri::cancelButtonPictureName = "cancel_button_normal.png";
 const char* ResourceUri::tabviewDismissButtonPictureName = "tabview_dismiss_normal.png";
+const char* ResourceUri::enterCityButtonPictureName = "enter_city_button_normal.png";
 
 // 数字键盘按钮的图片资源
 const char* ResourceUri::button0PictureName = "0_button_normal.png";
@@ -47,3 +48,11 @@ const char* ResourceUri::StrategyName[] =
     "攻略优先"
 };
 
+// 兵种类型的图片名称
+const char* ResourceUri::WeaponTypePictureName[] =
+{
+    "sword_normal.png",     //刀剑
+    "spear_normal.png",     //枪
+    "horse_normal.png",     //骑兵
+    "arrow_normal.png"      //弓箭
+};

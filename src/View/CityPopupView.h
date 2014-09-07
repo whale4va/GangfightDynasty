@@ -3,6 +3,7 @@
 #include "TabView.h"
 #include "RichTextView.h"
 #include "TabGroupView.h"
+#include "ListView.h"
 #include "../Model/Leader.h"
 #include "../Model/City.h"
 
@@ -100,8 +101,23 @@ private:
 
 class CityPopupView : public TabGroupView
 {
+private:
+    City* pCity;
+    static Uint8 armyListRowHeight;
+    
 public:
-    virtual bool OnButton();        // 重载方法，实现进入城市页面按钮操作
+    CityPopupView(CCNode* node, City* pC) :
+        TabGroupView(node, ResourceUri::enterCityButtonPictureName),
+        pCity(pC)
+    {
+        SetIsModal(false);
+    }
+    
+    void SetDimension(Dimension dim);       // 覆盖父类的方法，可以在此加入tabview
+    
+    virtual bool OnButton();                          // 重载方法，实现进入城市页面按钮操作
+    virtual bool OnListItemSelected(int rowIndex);    // 重载方法，实现列表选项被选择
+    virtual bool OnListItemUnselected(int rowIndex);  // 重载方法，实现列表选项的取消选择
 };
 
 #endif /* CITYPOPUPVIEW_H_HEADER_INCLUDED_AD80C380 */

@@ -20,6 +20,9 @@ public:
     // 城市策略字符串
     static const char* StrategyName[];
     
+    // 兵种类型的图片资源
+    static const char* WeaponTypePictureName[];
+    
     // 背景图片的贴图集路径
     static const char* backgroundPictureAtlas;
     static const char* tabviewBackgroundPictureName;
@@ -30,6 +33,7 @@ public:
     static const char* okButtonPictureName;
     static const char* cancelButtonPictureName;
     static const char* tabviewDismissButtonPictureName;
+    static const char* enterCityButtonPictureName;
     
     // 数字键盘按钮的图片资源
     static const char* button1PictureName;

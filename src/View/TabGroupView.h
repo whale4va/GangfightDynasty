@@ -17,6 +17,17 @@ public:
 		_background.parentView = this;
 	}
     
+    // can assign the dismiss button picture. for other usage.
+ 	TabGroupView(CCNode* n, String btnPicName):ViewFrame(n), _selectedIndex(0),
+    _titleList(true), _titleSpriteList(true),
+    _dismissButton(this, btnPicName),
+	_background(this, tabviewBackground), isModal(false)
+	{
+		_dismissButton._id = BTN_TAB_GROUP_DISMISS;
+		_dismissButton.parentView = this;
+		_background.parentView = this;
+	}
+    
     inline void SetIsModal(bool modal) { isModal = modal; }
 
 	virtual ~TabGroupView() {Destory();}

@@ -87,3 +87,82 @@ void CityPopupViewTab::Destory()
     spearHorseView.Destory();
 }
 
+
+/////////////////////////////////////////
+// CityPopupView
+/////////////////////////////////////////
+Uint8 CityPopupView::armyListRowHeight = 16;
+
+void CityPopupView::SetDimension(Dimension dim)
+{
+    if (!dim.IsValid()) {
+        THROW(Invalid_Dimension);
+    }
+    
+    //// add city popup tab
+    CityPopupViewTab* pCityTab = new CityPopupViewTab(
+        _node, pCity->get_name(), pCity);
+    this->AddTab(pCityTab);
+    
+    //// add army list tab
+    ListViewTab* pArmyTab = new ListViewTab(_node, "部队列表", 4, true,
+                                            false, armyListRowHeight, 0);
+    this->AddTab(pArmyTab);
+    // add title views.
+    TextView* pTitleText = new TextView(_node, "名称", true);
+    pArmyTab->AddTitleView(pTitleText);
+    pTitleText = new TextView(_node, "士兵", true);
+    pArmyTab->AddTitleView(pTitleText);
+    pTitleText = new TextView(_node, "兵种", true);
+    pArmyTab->AddTitleView(pTitleText);
+//pTitleText = new TextView(_node, "攻击力", true);
+//pArmyTab->AddTitleView(pTitleText);
+    
+    // add army list content views.
+    List<Uint32> armyIds = pCity->get_armyIdList();
+    List<Uint32> armySortOrder;
+    for (int i = 0; i < armyIds.GetLength(); ++i)
+    {
+        Army army = Army::GetArmyById(armyIds[i]);
+        TextView* pRowText = new TextView(_node, army.GetName(), true);
+        pArmyTab->AddContentView(pRowText);
+        pRowText = new TextView(_node, army.GetSoldier(), true);
+        pArmyTab->AddContentView(pRowText);
+        PictureView* pRowPic = new PictureView(_node, ResourceUri::WeaponTypePictureName[army.GetWeaponType()]);
+        pArmyTab->AddContentView(pRowPic);
+        
+        armySortOrder.Add(i);
+    }
+    pArmyTab->SetSortOrder(armySortOrder);
+
+}
+
+bool CityPopupView::OnButton()
+{
+    CCLOG("CityPopupView button clicked on %d(0x%X).\n", _senderId, _senderId);
+	bool ret = false;
+	switch (_senderId)
+	{
+	case BTN_ENTER_CITY:
+		Dismiss();
+        // 切换场景，进入城市视图
+        
+        ret = true;
+		break;
+	default:
+		break;
+	}
+    return false;
+}
+
+bool CityPopupView::OnListItemSelected(int rowIndex)
+{
+    return false;
+}
+
+bool CityPopupView::OnListItemUnselected(int rowIndex)
+{
+    
+    return false;
+}
+

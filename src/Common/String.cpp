@@ -28,6 +28,15 @@ String::String(const char* str)
     memcpy(data, str, length);
 }
 
+String::String(Uint32 val)
+{
+    data = new char[increaseSize];
+    size = increaseSize;
+    memset(data, 0x00, size);
+    sprintf(data, "%d", val);
+    length = strlen(data);
+}
+
 String::String(const String& str)
 {
     const char* pstr = (const char*)(str);
