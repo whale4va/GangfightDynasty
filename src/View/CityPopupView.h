@@ -4,6 +4,7 @@
 #include "RichTextView.h"
 #include "TabGroupView.h"
 #include "ListView.h"
+#include "ArmyReadyView.h"
 #include "../Model/Leader.h"
 #include "../Model/City.h"
 

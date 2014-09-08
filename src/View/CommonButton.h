@@ -6,6 +6,7 @@
 using cocos2d::CCMenuItemImage;
 using cocos2d::SEL_MenuHandler;
 using cocos2d::CCMenu;
+using cocos2d::CCNode;
 
 
 //##ModelId=522B30BB0317

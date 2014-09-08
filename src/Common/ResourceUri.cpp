@@ -22,6 +22,8 @@ const char* ResourceUri::okButtonPictureName = "ok_button_normal.png";
 const char* ResourceUri::cancelButtonPictureName = "cancel_button_normal.png";
 const char* ResourceUri::tabviewDismissButtonPictureName = "tabview_dismiss_normal.png";
 const char* ResourceUri::enterCityButtonPictureName = "enter_city_button_normal.png";
+// 备选军队列表的取消按钮图片资源
+const char* ResourceUri::armyReadyViewCancelButtonPictureName = "cancel_button_normal.png";
 
 // 数字键盘按钮的图片资源
 const char* ResourceUri::button0PictureName = "0_button_normal.png";

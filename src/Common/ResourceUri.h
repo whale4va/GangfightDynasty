@@ -54,6 +54,9 @@ public:
     static const char* maxButtonPictureName;
     static const char* clearButtonPictureName;
     
+    // 备选军队列表的取消按钮图片资源
+    static const char* armyReadyViewCancelButtonPictureName;
+
 };
 
 #endif

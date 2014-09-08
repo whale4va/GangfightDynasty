@@ -29,7 +29,7 @@ void CityPopupViewTab::Display()
     }
     
     
-    // set every subvies' point
+    // set every subviews' point
     Point pt = position;
     pt.z += 1.0;
     pt.y += dimension.h/2;
@@ -156,13 +156,15 @@ bool CityPopupView::OnButton()
 }
 
 bool CityPopupView::OnListItemSelected(int rowIndex)
-{
-    return false;
+{//CC_TARGET_PLATFORM == CC_PLATFORM_LINUX
+	Uint32 armyId = pCity->get_armyIdList()[rowIndex];
+	ArmyReadyView::GetArmyReadyView(_node)->AddSelectedArmy(armyId);
+    return true;
 }
 
 bool CityPopupView::OnListItemUnselected(int rowIndex)
 {
-    
-    return false;
+ 	Uint32 armyId = pCity->get_armyIdList()[rowIndex];
+	ArmyReadyView::GetArmyReadyView(_node)->RemoveSelectedArmy(armyId);
+    return true;
 }
-
