@@ -1,5 +1,6 @@
 #include "Army.h"
 
+
 //##ModelId=526CC82D00D8
 void Army::InitWithCreation()
 {

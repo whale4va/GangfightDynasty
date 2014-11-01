@@ -15,17 +15,20 @@ public:
 		_dismissButton._id = BTN_TAB_GROUP_DISMISS;
 		_dismissButton.parentView = this;
 		_background.parentView = this;
+        initWithColor(ToColor4B(TabGroupView::tabviewLayerColor));
 	}
     
     // can assign the dismiss button picture. for other usage.
- 	TabGroupView(CCNode* n, String btnPicName):ViewFrame(n), _selectedIndex(0),
+ 	TabGroupView(CCNode* n, String btnPicName, Uint32 btnId):
+    ViewFrame(n), _selectedIndex(0),
     _titleList(true), _titleSpriteList(true),
     _dismissButton(this, btnPicName),
 	_background(this, tabviewBackground), isModal(false)
 	{
-		_dismissButton._id = BTN_TAB_GROUP_DISMISS;
+		_dismissButton._id = btnId;
 		_dismissButton.parentView = this;
 		_background.parentView = this;
+        initWithColor(ToColor4B(TabGroupView::tabviewLayerColor));
 	}
     
     inline void SetIsModal(bool modal) { isModal = modal; }
@@ -113,6 +116,7 @@ public:
 	static const char* tabviewTitlePictureNormal;
 	static const char* tabviewTitlePictureSelected;
 	static const float tabviewTitleHeight;
+    static const Uint32 tabviewLayerColor;
 //	static const float tabviewTitleWidth;	// width = height * title.length
 
 protected:

@@ -3,14 +3,19 @@
 #include "ViewFrame.h"
 
 using cocos2d::CCSprite;
+using cocos2d::CCTexture2D;
 
 //##ModelId=522B2DB4025F
 class PictureView : public ViewFrame
 {
 public:
-    PictureView(CCNode* n) : ViewFrame(n), pSprite(NULL) {}
-    PictureView(CCNode* n, String picName) : ViewFrame(n), pSprite(NULL), resourceName(picName) {}
-    PictureView(const PictureView& orig) : ViewFrame(orig), pSprite(NULL), resourceName(orig.resourceName) {}
+    PictureView(CCNode* n) : ViewFrame(n), pSprite(NULL), pTexture(NULL) {}
+    PictureView(CCNode* n, String picName) : ViewFrame(n), pSprite(NULL),
+            resourceName(picName), pTexture(NULL) {}
+    PictureView(const PictureView& orig) : ViewFrame(orig),
+            pSprite(NULL), pTexture(NULL), resourceName(orig.resourceName) {}
+    PictureView(CCNode* n, CCTexture2D* pT) : ViewFrame(n), pSprite(NULL),
+            pTexture(pT) {}
     
     PictureView& operator=(const PictureView& orig)
     {
@@ -23,6 +28,7 @@ public:
                 pSprite = NULL;
             }
             resourceName = orig.resourceName;
+            pTexture = orig.pTexture;
         }
         return *this;
     }
@@ -69,6 +75,7 @@ protected:
     /** picture file name. */
     //##ModelId=522B3087037F
     String resourceName;
+    CCTexture2D* pTexture;
     
 private:
     PictureView();

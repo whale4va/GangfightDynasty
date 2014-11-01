@@ -56,6 +56,8 @@ public:
     
     // 备选军队列表的取消按钮图片资源
     static const char* armyReadyViewCancelButtonPictureName;
+    // 备选军队列表的背景图片资源
+    static const char* armyReadyBackgroundPictureName;
 
 };
 

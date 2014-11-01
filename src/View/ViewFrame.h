@@ -144,5 +144,14 @@ private:
 	CCSpriteFrameLoader();
 };
 
+/**
+ * @brief CCSpriteBatchNode manager. manage all CCSpriteBatchNodes
+ */
+class CCSpriteBatchNodeManager
+{
+public:
+    
+};
+
 
 #endif /* VIEWFRAME_H_HEADER_INCLUDED_AD80F808 */

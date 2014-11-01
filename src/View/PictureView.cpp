@@ -8,6 +8,12 @@ void PictureView::Display()
         pSprite->initWithFile(resourceName);
     }
     
+    if (pSprite == NULL && pTexture != NULL)
+    {
+        pSprite = new cocos2d::CCSprite();
+        pSprite->initWithTexture(pTexture);
+    }
+    
     if (pSprite)
     {
         if (dimension.IsValid())

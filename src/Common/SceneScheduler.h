@@ -10,8 +10,19 @@
 #ifndef SCENESCHEDULER_H_
 #define SCENESCHEDULER_H_
 
+#include "../Model/City.h"
 
+/**
+ * @brief class used for schedule scene
+ */
+class SceneScheduler
+{
 
+public:
+    // switch to city scene with specific city object
+    static void SwitchToCityScene(City* pCity);
+    
+};
 
 
 #endif /* SCENESCHEDULER_H_ */

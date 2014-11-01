@@ -7,6 +7,7 @@
 #include "ArmyReadyView.h"
 #include "../Model/Leader.h"
 #include "../Model/City.h"
+#include "../Common/SceneScheduler.h"
 
 //##ModelId=522B40B9029E
 class CityPopupViewTab : public TabView
@@ -108,7 +109,8 @@ private:
     
 public:
     CityPopupView(CCNode* node, City* pC) :
-        TabGroupView(node, ResourceUri::enterCityButtonPictureName),
+        TabGroupView(node, ResourceUri::enterCityButtonPictureName,
+                     BTN_ENTER_CITY),
         pCity(pC)
     {
         SetIsModal(false);

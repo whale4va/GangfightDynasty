@@ -42,6 +42,7 @@ const char* ResourceUri::button000PictureName = "000_button_normal.png";
 const char* ResourceUri::backspaceButtonPictureName = "backspace_button_normal.png";
 const char* ResourceUri::maxButtonPictureName = "max_button_normal.png";
 const char* ResourceUri::clearButtonPictureName = "clear_button_normal.png";
+const char* ResourceUri::armyReadyBackgroundPictureName = "army_ready_bg_normal.png";
 
 // 城市策略字符串
 const char* ResourceUri::StrategyName[] =
@@ -53,6 +54,7 @@ const char* ResourceUri::StrategyName[] =
 // 兵种类型的图片名称
 const char* ResourceUri::WeaponTypePictureName[] =
 {
+    "nothing",              // nothing 占位
     "sword_normal.png",     //刀剑
     "spear_normal.png",     //枪
     "horse_normal.png",     //骑兵

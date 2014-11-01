@@ -31,6 +31,7 @@ class Army
     
     // get army object by its id.
     static Army GetArmyById(Uint32 id);
+    
 
   private:
     //##ModelId=5228836F0087

@@ -162,7 +162,9 @@ typedef enum _ExceptionId
     Format_Parsing_Error,			// format string parsing error.
     String_Not_UTF8,				// string is not in UTF-8 encoding.
     Method_Not_Support,				// This method not support in the object.
-    Tab_Not_In_Group				// this tab view not put into a group yet.
+    Tab_Not_In_Group,				// this tab view not put into a group yet.
+    Invalid_Cipher_Table,           // Invalid (illegal) cipher table. bad calculation.
+    Invalid_Weapon_Type             // Invalid (illegal) army weapon type.
 }ExceptionId;
 
 

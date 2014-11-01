@@ -4,6 +4,7 @@ const char* TabGroupView::tabviewBackground = "Backgrounds/TabViewBackground.png
 const char* TabGroupView::tabviewTitlePictureNormal = "TabViewTitleNormal.png";
 const char* TabGroupView::tabviewTitlePictureSelected = "TabViewTitleSelected.png";
 const float TabGroupView::tabviewTitleHeight = 24.0;
+const Uint32 TabGroupView::tabviewLayerColor = 0xF0F0F0FF;  // gray.
 
 void TabGroupView::Display()
 {

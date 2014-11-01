@@ -250,6 +250,7 @@
 		CE18447619431FC3003BF9B0 /* Road.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE18446319431FC3003BF9B0 /* Road.cpp */; };
 		CE18447719431FC3003BF9B0 /* SubMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE18446619431FC3003BF9B0 /* SubMap.cpp */; };
 		CE18447819431FC3003BF9B0 /* Warfare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE18446919431FC3003BF9B0 /* Warfare.cpp */; };
+		CE30E2E319C1F58800476ACC /* Cipher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE30E2E219C1F58800476ACC /* Cipher.cpp */; };
 		CE80D0E619436AC40094A0A6 /* Backgrounds in Resources */ = {isa = PBXBuildFile; fileRef = CE80D0E519436AC40094A0A6 /* Backgrounds */; };
 		CE80D0E819436AC90094A0A6 /* Buttons in Resources */ = {isa = PBXBuildFile; fileRef = CE80D0E719436AC90094A0A6 /* Buttons */; };
 		CE80D0EA19436ACF0094A0A6 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = CE80D0E919436ACF0094A0A6 /* fonts */; };
@@ -260,6 +261,7 @@
 		CE80D0F619436ADF0094A0A6 /* horsing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE80D0F019436ADF0094A0A6 /* horsing.jpg */; };
 		CE80D0F719436ADF0094A0A6 /* PopupBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CE80D0F119436ADF0094A0A6 /* PopupBackground.png */; };
 		CE80D0F819436ADF0094A0A6 /* WarningViewBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CE80D0F219436ADF0094A0A6 /* WarningViewBackground.png */; };
+		CE97FFA219BDE3FD003B8C49 /* SceneScheduler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE97FFA119BDE3FD003B8C49 /* SceneScheduler.cpp */; };
 		CEB5732619474FAF00CE9E06 /* ResourceUri.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB5732519474FAF00CE9E06 /* ResourceUri.cpp */; };
 		CEB818DC19AA3B18005C874F /* NumberTabView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB818DB19AA3B18005C874F /* NumberTabView.cpp */; };
 		CED961E61940C02B009AA86A /* List.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961AA1940C02B009AA86A /* List.cpp */; };
@@ -269,7 +271,6 @@
 		CED961EC1940C02B009AA86A /* CityPopupView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961B81940C02B009AA86A /* CityPopupView.cpp */; };
 		CED961EE1940C02B009AA86A /* CommonButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961BC1940C02B009AA86A /* CommonButton.cpp */; };
 		CED961F11940C02B009AA86A /* ListView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961C21940C02B009AA86A /* ListView.cpp */; };
-		CED961F31940C02B009AA86A /* NumberSlipView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961C61940C02B009AA86A /* NumberSlipView.cpp */; };
 		CED961F41940C02B009AA86A /* PictureView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961C81940C02B009AA86A /* PictureView.cpp */; };
 		CED961F51940C02B009AA86A /* PureColorBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961CA1940C02B009AA86A /* PureColorBar.cpp */; };
 		CED961F61940C02B009AA86A /* RichTextView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED961CC1940C02B009AA86A /* RichTextView.cpp */; };
@@ -787,6 +788,8 @@
 		CE18446719431FC3003BF9B0 /* SubMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubMap.h; sourceTree = "<group>"; };
 		CE18446919431FC3003BF9B0 /* Warfare.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Warfare.cpp; sourceTree = "<group>"; };
 		CE18446A19431FC3003BF9B0 /* Warfare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Warfare.h; sourceTree = "<group>"; };
+		CE30E2E119C1F54600476ACC /* Cipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cipher.h; sourceTree = "<group>"; };
+		CE30E2E219C1F58800476ACC /* Cipher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cipher.cpp; sourceTree = "<group>"; };
 		CE80D0E519436AC40094A0A6 /* Backgrounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Backgrounds; sourceTree = "<group>"; };
 		CE80D0E719436AC90094A0A6 /* Buttons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Buttons; sourceTree = "<group>"; };
 		CE80D0E919436ACF0094A0A6 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
@@ -797,6 +800,8 @@
 		CE80D0F019436ADF0094A0A6 /* horsing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = horsing.jpg; sourceTree = "<group>"; };
 		CE80D0F119436ADF0094A0A6 /* PopupBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PopupBackground.png; sourceTree = "<group>"; };
 		CE80D0F219436ADF0094A0A6 /* WarningViewBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WarningViewBackground.png; sourceTree = "<group>"; };
+		CE97FFA119BDE3FD003B8C49 /* SceneScheduler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneScheduler.cpp; sourceTree = "<group>"; };
+		CE97FFA319BDE404003B8C49 /* SceneScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneScheduler.h; sourceTree = "<group>"; };
 		CEA514A619919E21006AFF69 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		CEB5732419474E8A00CE9E06 /* ResourceUri.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceUri.h; sourceTree = "<group>"; };
 		CEB5732519474FAF00CE9E06 /* ResourceUri.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceUri.cpp; sourceTree = "<group>"; };
@@ -818,8 +823,6 @@
 		CED961BD1940C02B009AA86A /* CommonButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonButton.h; sourceTree = "<group>"; };
 		CED961C21940C02B009AA86A /* ListView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ListView.cpp; sourceTree = "<group>"; };
 		CED961C31940C02B009AA86A /* ListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListView.h; sourceTree = "<group>"; };
-		CED961C61940C02B009AA86A /* NumberSlipView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NumberSlipView.cpp; sourceTree = "<group>"; };
-		CED961C71940C02B009AA86A /* NumberSlipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberSlipView.h; sourceTree = "<group>"; };
 		CED961C81940C02B009AA86A /* PictureView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PictureView.cpp; sourceTree = "<group>"; };
 		CED961C91940C02B009AA86A /* PictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureView.h; sourceTree = "<group>"; };
 		CED961CA1940C02B009AA86A /* PureColorBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PureColorBar.cpp; sourceTree = "<group>"; };
@@ -1846,6 +1849,8 @@
 		CED961A81940C02B009AA86A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CE97FFA319BDE404003B8C49 /* SceneScheduler.h */,
+				CE97FFA119BDE3FD003B8C49 /* SceneScheduler.cpp */,
 				CED961A91940C02B009AA86A /* ids.h */,
 				CED961AA1940C02B009AA86A /* List.cpp */,
 				CED961AB1940C02B009AA86A /* List.h */,
@@ -1855,6 +1860,8 @@
 				CEB5732419474E8A00CE9E06 /* ResourceUri.h */,
 				CEB5732519474FAF00CE9E06 /* ResourceUri.cpp */,
 				CEA514A619919E21006AFF69 /* constants.h */,
+				CE30E2E119C1F54600476ACC /* Cipher.h */,
+				CE30E2E219C1F58800476ACC /* Cipher.cpp */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1872,8 +1879,6 @@
 				CED961BD1940C02B009AA86A /* CommonButton.h */,
 				CED961C21940C02B009AA86A /* ListView.cpp */,
 				CED961C31940C02B009AA86A /* ListView.h */,
-				CED961C61940C02B009AA86A /* NumberSlipView.cpp */,
-				CED961C71940C02B009AA86A /* NumberSlipView.h */,
 				CED961C81940C02B009AA86A /* PictureView.cpp */,
 				CED961C91940C02B009AA86A /* PictureView.h */,
 				CED961CA1940C02B009AA86A /* PureColorBar.cpp */,
@@ -2217,7 +2222,6 @@
 				CED961EC1940C02B009AA86A /* CityPopupView.cpp in Sources */,
 				CED961EE1940C02B009AA86A /* CommonButton.cpp in Sources */,
 				CED961F11940C02B009AA86A /* ListView.cpp in Sources */,
-				CED961F31940C02B009AA86A /* NumberSlipView.cpp in Sources */,
 				CED961F41940C02B009AA86A /* PictureView.cpp in Sources */,
 				CED961F51940C02B009AA86A /* PureColorBar.cpp in Sources */,
 				CED961F61940C02B009AA86A /* RichTextView.cpp in Sources */,
@@ -2241,6 +2245,8 @@
 				CE18447819431FC3003BF9B0 /* Warfare.cpp in Sources */,
 				CEB5732619474FAF00CE9E06 /* ResourceUri.cpp in Sources */,
 				CEB818DC19AA3B18005C874F /* NumberTabView.cpp in Sources */,
+				CE97FFA219BDE3FD003B8C49 /* SceneScheduler.cpp in Sources */,
+				CE30E2E319C1F58800476ACC /* Cipher.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

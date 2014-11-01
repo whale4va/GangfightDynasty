@@ -144,9 +144,10 @@ bool CityPopupView::OnButton()
 	switch (_senderId)
 	{
 	case BTN_ENTER_CITY:
-		Dismiss();
+		//Dismiss();
         // 切换场景，进入城市视图
-        
+        Destory();
+        SceneScheduler::SwitchToCityScene(pCity);
         ret = true;
 		break;
 	default:
