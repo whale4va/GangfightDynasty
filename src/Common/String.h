@@ -64,6 +64,11 @@ public:
         return (length == 0);
     }
     
+    inline char* GetData()
+    {
+        return data;
+    }
+    
     void append(const String& str);
     void append(const char* str);
     int find(const char c, int startPos = 0) throw(ExceptionId);

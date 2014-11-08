@@ -50,4 +50,44 @@ Uint32 ViewFrame::GetId()
 
 bool CCSpriteFrameLoader::loaded = false;
 
+List<CCSpriteBatchNode*> CCSpriteBatchNodeManager::batchNodes(true);
+List<String> CCSpriteBatchNodeManager::nodeNames;
+
+cocos2d::CCSpriteBatchNode* CCSpriteBatchNodeManager::GetSpriteBatchNodeByName(
+ String name)
+{
+    if (name.GetLength() == 0)
+        return NULL;
+    
+    int index = nodeNames.Find(name);
+    if (nodeNames.invalidIndex != index)
+    {
+        return batchNodes[index];
+    }
+    else
+    {
+        cocos2d::CCSpriteBatchNode* pNode = new CCSpriteBatchNode();
+        pNode->initWithFile((const char*)name, 200);
+        batchNodes.Add(pNode);
+        nodeNames.Add(name);
+        return pNode;
+    }
+}
+
+void CCSpriteBatchNodeManager::RemoveSpriteBatchNodeByName(String name)
+{
+    int index = nodeNames.Find(name);
+    if (nodeNames.invalidIndex != index)
+    {
+        nodeNames.Remove(index);
+        batchNodes.Remove(index);
+    }
+}
+
+void CCSpriteBatchNodeManager::ReleaseSpriteBatchNodes()
+{
+    nodeNames.Release();
+    batchNodes.Release();
+}
+
 

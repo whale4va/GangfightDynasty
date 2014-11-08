@@ -58,7 +58,11 @@ public:
     static const char* armyReadyViewCancelButtonPictureName;
     // 备选军队列表的背景图片资源
     static const char* armyReadyBackgroundPictureName;
-
+    
+    
+    // ListView选中高亮背景图片资源
+    static const char* listViewHighLightPictureName;
 };
+
 
 #endif

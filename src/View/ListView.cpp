@@ -162,8 +162,23 @@ void ListViewTab::Display()
     viewPoint.x -= dimension.w/2;
     viewPoint.y += dimension.h/2 - rowHeight;
     viewPoint.y += curShowOffset - rowHeight/2;
+    
+    Point highLightPt = position;
+    highLightPt.z += 2.0;
+    highLightPt.y += dimension.h/2 - rowHeight;
+    highLightPt.y += curShowOffset - rowHeight/2;
     for (int i = curShowIndex; i < curShowIndex+curShowLength; i++)
     {
+        // show this row high light view first if needed.
+        int existedIndex = selectedItem.Find(sortOrder[i]);
+        if ( existedIndex != selectedItem.invalidIndex)
+        {
+            highLightViews[existedIndex]->SetPoint(highLightPt);
+            highLightViews[existedIndex]->Display();
+        }
+        highLightPt.y -= rowHeight;
+        
+        // show every  columns in this row.
         viewPoint.x = position.x - dimension.w/2;
         for (int j = 0; j < columnNumber; j++)
         {
@@ -365,14 +380,15 @@ void ListViewTab::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEven
                         else if (curSpecialIndex != newShowIndex)
                         {
                             // de-select current selected item(row) and notify parent view
-                            if (!multiSelectable)
-                            {
-                                int existedIndex = selectedItem.Find(sortOrder[curSpecialIndex]);
-                                if ( existedIndex != selectedItem.invalidIndex)
-                                    selectedItem.Remove(existedIndex);
-                                if (parentView != NULL)
-                                    parentView->OnListItemUnselected(sortOrder[curSpecialIndex]);
-                            }
+//                            if (!multiSelectable)
+//                            {
+//                                int existedIndex = selectedItem.Find(sortOrder[curSpecialIndex]);
+//                                if ( existedIndex != selectedItem.invalidIndex)
+//                                    selectedItem.Remove(existedIndex);
+//                                if (parentView != NULL)
+//                                    parentView->OnListItemUnselected(sortOrder[curSpecialIndex]);
+//                            }
+                            
                             
                             // hide & show special buttons.
                             this->HideSpecialButton();
@@ -386,11 +402,11 @@ void ListViewTab::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEven
                             this->HideSpecialButton();
                                                         
                             // de-select current selected item(row) and notify parent view
-                            int existedIndex = selectedItem.Find(sortOrder[curSpecialIndex]);
-                            if ( existedIndex != selectedItem.invalidIndex)
-                                selectedItem.Remove(existedIndex);
-                            if (parentView != NULL)
-                                parentView->OnListItemUnselected(sortOrder[curSpecialIndex]);
+//                            int existedIndex = selectedItem.Find(sortOrder[curSpecialIndex]);
+//                            if ( existedIndex != selectedItem.invalidIndex)
+//                                selectedItem.Remove(existedIndex);
+//                            if (parentView != NULL)
+//                                parentView->OnListItemUnselected(sortOrder[curSpecialIndex]);
                             curSpecialIndex = -1;
                         }
                     }
@@ -402,10 +418,45 @@ void ListViewTab::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEven
                         selectedItem.Remove(existedIndex);
                         if (parentView != NULL)
                             parentView->OnListItemUnselected(sortOrder[newShowIndex]);
+                        
+                        highLightViews[existedIndex]->Dismiss();
+                        delete highLightViews[existedIndex];
+                        highLightViews.Remove(existedIndex);
                     }
                     else
                     {
+                        if (!multiSelectable)
+                        {
+                            // de-select already selected list items
+                            for (int i = 0; i < selectedItem.GetLength(); i++)
+                            {
+                                if (parentView != NULL)
+                                    parentView->OnListItemUnselected(selectedItem[i]);
+                            }
+                            selectedItem.Release();
+                            highLightViews.Release();
+                        }
                         selectedItem.Add(sortOrder[newShowIndex]);  // convert showing index to data index.
+                       
+                        // add & show high light picture view
+                        cocos2d::CCSpriteBatchNode* pBatchNode = CCSpriteBatchNodeManager::GetSpriteBatchNodeByName(ResourceUri::listViewHighLightPictureName);
+                        
+                        PictureView* pPic = new PictureView(
+                                                _node,
+                                                pBatchNode->getTexture());
+                        Dimension dim = dimension;
+                        dim.h = rowHeight;
+                        pPic->SetDimension(dim);
+                        Point pt = position;
+                        pt.z += 2.0;
+                        pt.y += dimension.h/2 - rowHeight;
+                        pt.y += curShowOffset - rowHeight/2;
+                        pt.y -= (newShowIndex - curShowOffset)*rowHeight;
+                        pPic->SetPoint(pt);
+                        pPic->Display();
+                        
+                        highLightViews.Add(pPic);
+                        
                         if (parentView != NULL)
                             parentView->OnListItemSelected(sortOrder[newShowIndex]);
                     }

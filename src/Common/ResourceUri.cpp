@@ -60,3 +60,6 @@ const char* ResourceUri::WeaponTypePictureName[] =
     "horse_normal.png",     //骑兵
     "arrow_normal.png"      //弓箭
 };
+
+// ListView选中高亮背景图片资源
+const char* ResourceUri::listViewHighLightPictureName = "list_view_high_light.png";

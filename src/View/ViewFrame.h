@@ -147,10 +147,16 @@ private:
 /**
  * @brief CCSpriteBatchNode manager. manage all CCSpriteBatchNodes
  */
+using cocos2d::CCSpriteBatchNode;
 class CCSpriteBatchNodeManager
 {
 public:
+    static List<cocos2d::CCSpriteBatchNode*> batchNodes;
+    static List<String> nodeNames;
+    static CCSpriteBatchNode* GetSpriteBatchNodeByName(String name);
     
+    static void RemoveSpriteBatchNodeByName(String name);
+    static void ReleaseSpriteBatchNodes();
 };
 
 

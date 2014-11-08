@@ -90,7 +90,7 @@ class ListViewTab : public TabView
                 multiSelectable(multiSelect), triggleSpecialButton(triggleSpecial),
                 curShowIndex(0), curShowOffset(0), curShowLength(0), isMoved(false),
 //                okButton(node, ResourceUri::okButtonPictureName),
-                titleViews(true), contentViews(true),
+                titleViews(true), contentViews(true), highLightViews(true),
                 specialButtons(node, 1, specialNumber),
                 rowHeight(rowH), curSpecialIndex(-1),
                 buttomView(node, ResourceUri::tabviewBackgroundPictureName)
@@ -161,6 +161,10 @@ class ListViewTab : public TabView
         {
             contentViews[i]->Dismiss();
         }
+        for (int i = 0; i < highLightViews.GetLength(); i++)
+        {
+            highLightViews[i]->Dismiss();
+        }
         buttomView.Dismiss();
     }
     
@@ -174,6 +178,9 @@ class ListViewTab : public TabView
         }
         buttomView.Destory();
         specialButtons.Destory();
+        highLightViews.Release();
+        contentViews.Release();
+        titleViews.Release();
     }
     
 private:
@@ -181,6 +188,9 @@ private:
     Uint8 columnNumber;
     //##ModelId=522B4BC902BC
     List<Uint32> selectedItem;
+    // selected item row high light views
+    List<PictureView*> highLightViews;
+    
     //##ModelId=522B4BDE034A
     bool multiSelectable;
     //##ModelId=522B4BEC022F
