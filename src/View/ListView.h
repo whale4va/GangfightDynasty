@@ -15,6 +15,11 @@ class ListViewTab : public TabView
     {
         return selectedItem;
     }
+    
+    ~ListViewTab()
+    {
+        this->Destory();
+    }
 
     /** @brief set list view items order */
     //##ModelId=5265391B0223
@@ -91,7 +96,7 @@ class ListViewTab : public TabView
                 curShowIndex(0), curShowOffset(0), curShowLength(0), isMoved(false),
 //                okButton(node, ResourceUri::okButtonPictureName),
                 titleViews(true), contentViews(true), highLightViews(true),
-                specialButtons(node, 1, specialNumber),
+                specialButtons(node, 1, specialNumber), selectedItem(false),
                 rowHeight(rowH), curSpecialIndex(-1),
                 buttomView(node, ResourceUri::tabviewBackgroundPictureName)
     {

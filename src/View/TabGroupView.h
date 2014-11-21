@@ -53,11 +53,16 @@ public:
 	inline void AddTab(TabView* pTab) throw (ExceptionId)
 	{
 		assert(pTab);
+        if (!position.IsValid())
+            throw (Invalid_Position);   // tab view group not set position yet.
+        
 		if (dimension.w < FLOAT_MINOR_LIMIT || dimension.h < FLOAT_MINOR_LIMIT)
 			throw (Invalid_Dimension);	// tab view group not set dimension yet.
 
-		pTab->SetDimension(mkDimension(dimension.w, dimension.h-tabviewTitleHeight));
 		pTab->SetPoint(mkPoint(position.x, position.y-tabviewTitleHeight/2, position.z));
+        
+		pTab->SetDimension(mkDimension(dimension.w, dimension.h-tabviewTitleHeight));
+        
 		//_tabList.Add(pTab);
 		subview.Add(pTab);
 		pTab->SetParentView(this);

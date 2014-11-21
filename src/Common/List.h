@@ -112,7 +112,8 @@ public:
         return invalidIndex;
     }
     
-    /** @brief release memory of every dynamic memory elements in the list */
+    /** @brief release memory of every dynamic memory elements in the list
+     only used for pointer list */
     inline void Release()
     {
         if (isPointers)
@@ -128,6 +129,12 @@ public:
             delete [] data;
             data = NULL;
         }
+        size = length = 0;
+    }
+
+    // only clear the elements in the list.
+    inline void Clear()
+    {
         size = length = 0;
     }
 

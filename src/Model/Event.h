@@ -25,6 +25,31 @@ class Event
     Uint32 upgradeResult;
     //##ModelId=522B29780244
     GameDate deadLine;
+    
+public:
+    Event() : type(Event_Upgrade_Done), executeArmies(true),
+    targetArmyId(GAME_INVALID_ID), targetCityId(GAME_INVALID_ID),
+    executeLeaders(true), upgradeResult(0), deadLine(GameDate::upgradeNeedDays)
+    {}
+    
+    void SetType(EventType t);
+    EventType GetType();
+
+    void SetArmies(List<Army*> armies);
+    List<Army*> GetArmies();
+
+    void SetTargetCityId(Uint32 id);
+    Uint32 GetTargetCityId();
+
+    void SetExecuteLeaders(List<Leader*> leaders);
+    List<Leader*> GetExecuteLeaders();
+
+    void SetUpgradeResult(Uint32 result);
+    Uint32 GetUpgradeResult();
+
+    void SetDeadLine(GameDate date);
+    GameDate GetDeadLine();
+
 };
 
 

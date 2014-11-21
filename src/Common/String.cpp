@@ -33,7 +33,20 @@ String::String(Uint32 val)
     data = new char[increaseSize];
     size = increaseSize;
     memset(data, 0x00, size);
-    sprintf(data, "%d", val);
+    sprintf(data, "%u", val);
+    length = strlen(data);
+}
+
+String::String(const char* str, Uint32 val)
+{
+    assert(str);
+    length = strlen(str);
+    // 0~4294967295 == Uint32, 10个字符
+    length += 11;
+    size = (length/increaseSize + 1)*increaseSize;
+    data = new char[size];
+    memset(data, 0x00, size);
+    sprintf(data, "%s%u", str, val);
     length = strlen(data);
 }
 

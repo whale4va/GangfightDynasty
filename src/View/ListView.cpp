@@ -433,7 +433,7 @@ void ListViewTab::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEven
                                 if (parentView != NULL)
                                     parentView->OnListItemUnselected(selectedItem[i]);
                             }
-                            selectedItem.Release();
+                            selectedItem.Clear();
                             highLightViews.Release();
                         }
                         selectedItem.Add(sortOrder[newShowIndex]);  // convert showing index to data index.

@@ -1,6 +1,8 @@
 #include "EventQueue.h"
 #include "Event.h"
 
+EventQueue* EventQueue::pInstance = NULL;
+
 //##ModelId=522B2B6403A4
 void EventQueue::AddEvent(Event* event)
 {

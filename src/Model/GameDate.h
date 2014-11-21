@@ -12,6 +12,19 @@ struct GameDate
     Uint8 day;
     //##ModelId=522B2A6201F9
     Uint32 year;
+    
+public:
+    static GameDate GetCurrentDate();
+    
+    // init with current date.
+    GameDate();
+    // init with current date + days (as move of calendar)
+    GameDate(int days);
+    
+    void ForwardDays(int days);
+
+    // 升级需要的天数
+    static int upgradeNeedDays;
 };
 
 

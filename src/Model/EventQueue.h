@@ -18,12 +18,31 @@ class EventQueue
     after every day passed. */
     //##ModelId=5275F3660221
     void DateUpdateNotify();
+    
+    static EventQueue* GetInstance()
+    {
+        if (NULL == pInstance)
+            pInstance = new EventQueue();
+        return pInstance;
+    }
+    
+    static void Release()
+    {
+        delete pInstance;
+        pInstance=NULL;
+    }
 
   private:
     //##ModelId=522B2B280276
     Uint32 eventNumber;
     //##ModelId=522B2B3C011B
     List<Event*> eventList;
+    
+    EventQueue():eventNumber(0),eventList(true) {}
+    ~EventQueue() {eventList.Release();}
+    
+    static EventQueue* pInstance;
+    
 };
 
 

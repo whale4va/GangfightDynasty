@@ -19,6 +19,10 @@
 // global macros
 #define GAME_FONT "BiauKai"     // BiauKai.ttf - Info.plst - Font provided by application
 #define FLOAT_MINOR_LIMIT 0.00001	// lower than this value defined as float 0.0
+#define FLOAT_INVALID_COORDINATE -1000.0    // invalid coordinate of point
+
+#define UPGRADE_EFFORT 10       // times of upgrading effort of leader ability.
+#define UPGRADE_COST 100        // cost money of every upgrading.
 
 // global types
 typedef bool Boolean;
@@ -33,9 +37,22 @@ typedef unsigned long long Uint64;
 typedef struct _Point
 {
     float x, y, z;
-    _Point():x(0.0),y(0.0),z(0.0) {}
+    _Point():x(FLOAT_INVALID_COORDINATE),
+        y(FLOAT_INVALID_COORDINATE),
+        z(FLOAT_INVALID_COORDINATE) {}
     
     _Point(const _Point& orig):x(orig.x),y(orig.y),z(orig.z) {}
+    
+    bool IsValid()
+    {
+        if ( x > FLOAT_INVALID_COORDINATE && x-FLOAT_INVALID_COORDINATE>FLOAT_MINOR_LIMIT
+            && y > FLOAT_INVALID_COORDINATE && y-FLOAT_INVALID_COORDINATE>FLOAT_MINOR_LIMIT
+            && z > FLOAT_INVALID_COORDINATE && z-FLOAT_INVALID_COORDINATE>FLOAT_MINOR_LIMIT)
+            return true;
+        else
+            return false;
+    }
+    
 }Point;
 
 inline Point mkPoint(float x, float y, float z = 0)
@@ -164,7 +181,9 @@ typedef enum _ExceptionId
     Method_Not_Support,				// This method not support in the object.
     Tab_Not_In_Group,				// this tab view not put into a group yet.
     Invalid_Cipher_Table,           // Invalid (illegal) cipher table. bad calculation.
-    Invalid_Weapon_Type             // Invalid (illegal) army weapon type.
+    Invalid_Weapon_Type,            // Invalid (illegal) army weapon type.
+    Invalid_Upgrade_Type,           // Invalid (illegal) upgrade type.
+    Invalid_Position                // Invalid (illegal) position of view frame
 }ExceptionId;
 
 
@@ -253,7 +272,7 @@ typedef enum _EventType
     throw (_EID_); \
 }
 
-#define SET_U64_BIT(_U64_,_POS_) _U64_ |= ((Uint64)0x01) << _POS_ )
+#define SET_U64_BIT(_U64_,_POS_) _U64_ |= (((Uint64)0x01) << _POS_ )
 #define ISSET_U64_BIT(_U64_,_POS_) (_U64_ & ((Uint64)0x01 << _POS_))
 #define CLEAR_U64_BIT(_U64_,_POS_) _U64_ &= (~((Uint64)0x01 << _POS_))
 

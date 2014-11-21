@@ -61,9 +61,14 @@ public:
     // getter & setter
     inline String GetName() { return name; }
     inline void SetName(String n) { name = n; }
+
+    inline Uint32 GetSmart() { return smart; }
+    inline void SetSmart(Uint32 s) { smart = s; }
+
+    inline Uint32 GetPower() { return power; }
+    inline void SetPower(Uint32 p) { power = p; }
     
-    
-    
+    inline void SetAssignTask(Event* pE) {assignedTask = pE;}
     
 };
 

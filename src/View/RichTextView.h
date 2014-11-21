@@ -127,6 +127,11 @@ class RichTextView : public ViewFrame
 		if (rte)
 			elementList.Add(rte);
 	}
+    
+    inline RichTextElement* GetRichTextElementAt(int index)
+    {
+        return elementList[index];
+    }
 
 	inline void SetFontScale(float scale) { formatScale = scale; needParse = true; }
 	inline void SetFormatContent(const String& str) { formatContent = str; needParse = true; }
