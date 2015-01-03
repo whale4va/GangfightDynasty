@@ -17,3 +17,8 @@ void Army::SetLeaderId(Uint32 id)
 {
 }
 
+Army Army::GetArmyById(Uint32 id)
+{
+    Army army;
+    return army;
+}

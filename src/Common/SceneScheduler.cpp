@@ -6,8 +6,12 @@
  *
  * @brief implementation of SceneScheduler
  */
+#include "SceneScheduler.h"
 
-
+void SceneScheduler::SwitchToCityScene(City* pCity)
+{
+    
+}
 
 
 

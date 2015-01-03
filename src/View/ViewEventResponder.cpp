@@ -59,3 +59,22 @@ bool ViewEventResponder::OnTabTitleTap()
     return false;
 }
 
+bool ViewEventResponder::ccTouchBegan(CCTouch* pTouch, cocos2d::CCEvent *pEvent)
+{
+    return false;
+}
+
+void ViewEventResponder::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent* pEvent)
+{
+    return;
+}
+
+void ViewEventResponder::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
+{
+    return;
+}
+
+void ViewEventResponder::ccTouchCancelled(CCTouch* pTouch, CCEvent* pEvent)
+{
+    return;
+}

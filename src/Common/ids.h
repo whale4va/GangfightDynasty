@@ -42,4 +42,11 @@
 // Enter city button
 #define BTN_ENTER_CITY 0x00FF0013
 
+
+/**
+ *  Leader ID
+ */
+#define LEADER_DEFAULT_ID 0x00FE0001
+
+
 #endif /* IDS_H_ */

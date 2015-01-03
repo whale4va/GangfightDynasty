@@ -41,6 +41,10 @@ public:
         SORT_BY_POWER
     }sortField;
     
+    Leader();
+    Leader(const Leader& l);
+    Leader& operator=(const Leader& l);
+    
     // static method, query all leaders
     static List<Leader*> QueryAllLeaders();
     

@@ -21,6 +21,10 @@ public:
     // init with current date + days (as move of calendar)
     GameDate(int days);
     
+    GameDate(const GameDate& gd);
+    
+    GameDate& operator=(const GameDate& gd);
+    
     void ForwardDays(int days);
 
     // 升级需要的天数

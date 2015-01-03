@@ -62,6 +62,10 @@ public:
     
     // ListView选中高亮背景图片资源
     static const char* listViewHighLightPictureName;
+    
+    
+    // 将领图片
+    static const char* leaderDefaultPictureName;
 };
 
 

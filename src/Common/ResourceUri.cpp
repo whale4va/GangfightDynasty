@@ -63,3 +63,7 @@ const char* ResourceUri::WeaponTypePictureName[] =
 
 // ListView选中高亮背景图片资源
 const char* ResourceUri::listViewHighLightPictureName = "list_view_high_light.png";
+
+// 将领图片
+const char* ResourceUri::leaderDefaultPictureName = "leader_default.png";
+
